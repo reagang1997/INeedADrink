@@ -1,9 +1,12 @@
+
 .card {
+
     display: flex;
     align-items: center;
     flex-direction: column;
     flex:1;
     margin-top: 100px;
+
     text-align: center;
 }
 
@@ -23,4 +26,27 @@
     width: 100%;
     padding: 1rem;
     transition: all ease .4s;
+}
+
+
+.day-card{
+    border: solid 2px gray;
+    border-radius: 5px;
+    width: 45%;
+    margin-top: 15px;
+}
+
+
+.forecast-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex:1;
+    margin-top: 50px;
+    text-align: center;
+    border: solid 2px gray;
+    border-radius: 5px;
+    height: auto;
+    width: 35%;
+    padding: 15px;
 }
