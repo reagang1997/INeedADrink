@@ -1,10 +1,25 @@
+.bar-image {
+    background-image: url("https://www.brasstapbeerbar.com/images/slides/beer-taps.jpg");
+    background-color: #cccccc;
+    height: 500px;
+    background-position: center;
+    background-repeat:repeat;
+    background-size: cover;
+    position: relative;
+}
 .card {
     display: flex;
     align-items: center;
     flex-direction: column;
     flex:1;
-    margin-top: 100px;
+    margin-top: 5px;
     text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .seach-by-city {
@@ -24,3 +39,4 @@
     padding: 1rem;
     transition: all ease .4s;
 }
+
