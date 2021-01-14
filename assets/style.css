@@ -1,3 +1,14 @@
+/* No Margin or Padding on the HTML or body */
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Set Everything to Box Sizing */
+  * {
+    box-sizing: border-box;
+  }
+
 .main-container{
     display: flex;
     align-items: center;
@@ -26,4 +37,15 @@
     height: auto;
     width: 35%;
     padding: 15px;
+}
+
+
+.card-width {
+    width:100%;
+}
+
+/* * Resises Condition Icon */
+.conditions-content {
+    width:40px;
+    display:inline;
 }
