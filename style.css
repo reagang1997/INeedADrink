@@ -1,6 +1,17 @@
+.main-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex:1;
+    margin-top: 100px;
+}
+
+
 .forecast-container{
+    margin-top: 50px;
     text-align: center;
-    background-color: blue;
+    border: solid 2px gray;
+    border-radius: 5px;
     height: auto;
     width: 35%;
     padding: 15px;
