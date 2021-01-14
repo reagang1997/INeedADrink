@@ -14,7 +14,6 @@
     flex-direction: column;
     flex:1;
     margin-top: 5px;
-
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -43,6 +42,7 @@
 }
 
 
+
 .day-card{
     border: solid 2px gray;
     border-radius: 5px;
@@ -50,17 +50,3 @@
     margin-top: 15px;
 }
 
-
-.forecast-container{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    flex:1;
-    margin-top: 50px;
-    text-align: center;
-    border: solid 2px gray;
-    border-radius: 5px;
-    height: auto;
-    width: 35%;
-    padding: 15px;
-}
