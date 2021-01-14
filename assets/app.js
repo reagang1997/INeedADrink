@@ -8,6 +8,9 @@ city = ""
 var weatherURL = "https://api.weatherbit.io/v2.0/forecast/daily?" //city="dallas";
 var weatherKey = "fb5c4c3b9af04b90ba63cec252a9d051";
 
+var goodWeather = [800, 801, 802, 803];
+var goodDay = false;
+
 $(document).ready(function () {
     //Get the Weather API
     getWeather();
@@ -23,6 +26,16 @@ function getWeather() {
         url: weatherURL + "city=dallas&key=" + weatherKey
     }).then(function (res) {
         console.log(res);
+
+        var high, description, icon, code;
+        
+        high = Math.round((res.data[0].max_temp * (9/5)) + 32);
+        description = res.data[0].weather.description;
+        icon = res.data[0].weather.icon;
+        code = res.data[0].weather.code;
+        if(goodWeather.indexOf(code) != -1){
+            goodDay = true;
+        }
     })
 }
 
