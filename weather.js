@@ -15,10 +15,6 @@ function getWeather(){
         url: weatherURL + "city=dallas&key=" + weatherKey
     }).then(function(res){
         console.log(res);
-        var high, description, icon;
         
-        high = Math.round((res.data[0].max_temp * (9/5)) + 32);
-        description = res.data[0].weather.description;
-        icon = res.data[0].weather.icon;
     })
 }

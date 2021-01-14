@@ -6,8 +6,19 @@
     margin-top: 100px;
 }
 
+.day-card{
+    border: solid 2px gray;
+    border-radius: 5px;
+    width: 45%;
+    margin-top: 15px;
+}
+
 
 .forecast-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex:1;
     margin-top: 50px;
     text-align: center;
     border: solid 2px gray;
