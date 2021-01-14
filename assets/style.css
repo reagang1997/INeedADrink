@@ -14,8 +14,35 @@ html, body {
     align-items: center;
     flex-direction: column;
     flex:1;
-    margin-top: 100px;
+    margin-top: 5px;
+
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
+.seach-by-city {
+    text-align: center;
+    font-size: large;
+    align-items: center;
+}
+
+.submit {
+    border-radius: 30px;
+    border: 1px solid #fff;
+    color: #fff;
+    background-color: navy;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    padding: 1rem;
+    transition: all ease .4s;
+}
+
 
 .day-card{
     border: solid 2px gray;
