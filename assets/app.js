@@ -1,6 +1,6 @@
 
 //Empty Variable to pass the city search should hopefully work for both Weather and Brewery API at the same time
-city = ""
+city = "Dallas"
 
 
 // ==================================
@@ -14,7 +14,7 @@ var yesNo;
 
 $(document).ready(function () {
     //Get the Weather API
-    getWeather();
+    getWeather(city);
     // Get The Brewery API
     renderBreweries()
 
@@ -24,7 +24,7 @@ function getWeather() {
 
     $.ajax({
         method: "GET",
-        url: weatherURL + "city=dallas&key=" + weatherKey
+        url: weatherURL + "city=" + city + "&key=" + weatherKey
     }).then(function (res) {
 
         var high, description, icon, code;
@@ -98,12 +98,25 @@ function getWeather() {
 
 breweryQueryURL = "https://api.openbrewerydb.org/breweries?by_city=" + city
 
+var brewName, brewType, brewAddress, brewWebsite;
+
 function renderBreweries() {
     $.ajax({
         method: "GET",
         url: breweryQueryURL
     }).then(function (response) {
         console.log(response);
+        
+        brewName = response[0].name;
+        brewType = response[0].brewery_type;
+        brewAddress = response[0].street;
+        brewWebsite = response[0].website_url;
+
+        console.log(brewName, brewType, brewAddress, brewWebsite);
+
+        
+        //for i = 0; i < response.length; i++ to get all the breweries
+
     })
 }
 
