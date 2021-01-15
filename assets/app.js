@@ -45,7 +45,7 @@ function getWeather() {
                 yesNo = "Nahh";
             }
 
-            $(".forecast-container").append(/*html*/ `
+            $("#forecast").append(/*html*/ `
             <div class="day-card">
     
                 <p><span class="date">${res.data[i].valid_date}</span></p>

@@ -46,6 +46,20 @@
     </section>
     <section id="forecast" class="lazy library-slider" data-sizes="50vw">
         <!-- Forcast Information Gets Added Here -->
+        <div class="card">
+            <h3>${res.data[i].valid_date}</h3>
+            <p>Is today a good day for a beer?</p>
+            <h2 class="yes-no">${yesNo}</h2>
+            <div>
+                <p>Conditions:<img style="width:40px; display:inline;"
+                        src="https://www.weatherbit.io/static/img/icons/${icon}.png"> <span
+                        class="dailyConditions">${description}</span></p>
+                <p>Max Temp: <span class="dailyTemp">${high}</span> | Hunmidity: <span class="dailyHumid">35</span>
+                </p>
+            </div>
+            <button id="breweryBtn" class="button">View Local Breweries</button>
+        </div>
+
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
