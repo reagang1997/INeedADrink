@@ -42,17 +42,21 @@ function getWeather() {
 
             if (goodWeather.indexOf(code) != -1) {
                 goodDay = true;
+                // yesNo = "Great Day For a Beer!";
                 yesNo = "Great Day For a Beer!";
+                var imageGood = /*html*/ `<img src="assets/images/great-day.svg" style="display:inline;" alt="Great Day!">
+                `
                 weatherContent = /*html*/ `
                     <div class="card text-center card-width padding25 rounderCorners">
-                        <h3>${res.data[i].valid_date}</h3>
-                        <p>Is today a good day for a beer?</p>
-                        <h2 class="yes-no">${yesNo}</h2>
-                        <div> 
-                        <p>Conditions:<img
+                    
+                    <h4>${res.data[i].valid_date}</h4>
+                       
+                    <div class="marginT-20">${imageGood}</div>
+                    <div> 
+                        <p>Max Temp: <span class="dailyTemp">${high}</span>  |  Conditions:<img
                              style="width:40px; display:inline;" src="https://www.weatherbit.io/static/img/icons/${icon}.png"> <span
-                             class="dailyConditions">${description}</span></p> 
-                         <p>Max Temp: <span class="dailyTemp">${high}</span> | Hunmidity: <span class="dailyHumid">35</span>
+                             class="dailyConditions">${description}</span>
+                           |  Humidity: <span class="dailyHumid">35</span>
                         </p></div>
                         <button id="breweryBtn" class="button">View Local Breweries</button>
                  </div>
@@ -60,11 +64,14 @@ function getWeather() {
             }
             else {
                 yesNo = "Nahh";
+                yesNo = "Great Day For a Beer!";
+                var imageBad = /*html*/ `<img src="assets/images/bad-day.svg" style="display:inline;" alt="Great Day!">
+                `
                 weatherContent = /*html*/ `
              <div class="card text-center card-width padding25 rounderCorners">
-                     <h3>${res.data[i].valid_date}</h3>
-                     <p>Is today a good day for a beer?</p>
-                     <h2 class="yes-no">${yesNo}</h2>
+                     <h4>${res.data[i].valid_date}</h4>
+                     <div class="marginT-20">${imageBad}</div>
+                    <div> 
                      <div> 
                      <p>Conditions:<img
                              style="width:40px; display:inline;" src="https://www.weatherbit.io/static/img/icons/${icon}.png"> <span
