@@ -86,6 +86,10 @@ html, body {
     padding: 15px;
 }
 
+.marginT-20 {
+    margin:20px 0;
+}
+
 .padding25 {
     padding: 20px;
 }
