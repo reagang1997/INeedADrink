@@ -64,24 +64,12 @@ function getWeather() {
             // on Append we just simply name the variable above
             $("#forecast").append(weatherContent)
 
-            // $("#forecast").append(/*html*/ `
-            // <div class="day-card">
-
-            //     <p><span class="date">${res.data[i].valid_date}</span></p>
-            //     <p>Good Day For a Beer?</p>
-
-            //     <p><span class="yes-no">${yesNo}</span></p>
-
-            //     <img src="https://www.weatherbit.io/static/img/icons/${icon}.png">
-
-            //     <p><span class="temp">${high}</span>&degF</p>
-
-            //     <p>Conditions: <span class="conditions">${description}</span></p>
-
-            // </div>
-            // `)
         }
-
+        //function for the slick slider
+        $(".lazy").slick({
+            lazyLoad: 'ondemand', // ondemand progressive anticipated
+            infinite: true
+        });
     })
 }
 
