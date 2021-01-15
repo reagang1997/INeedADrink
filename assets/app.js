@@ -114,11 +114,12 @@ function getWeather() {
 // ==================================
 //Brewery List API
 
-breweryQueryURL = "https://api.openbrewerydb.org/breweries?by_city=" + city
+
 
 var brewName, brewType, brewAddress, brewWebsite;
 
 function renderBreweries() {
+    breweryQueryURL = "https://api.openbrewerydb.org/breweries?by_city=" + city
     $.ajax({
         method: "GET",
         url: breweryQueryURL
@@ -156,5 +157,6 @@ $(".submit").on("click", function (event) {
 
 $("#forecast").on("click", "#breweryBtn", function(event){
     event.preventDefault();
+    city = $("#input-search").val();
     renderBreweries();
 })
