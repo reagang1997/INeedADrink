@@ -32,7 +32,7 @@ function getWeather() {
         $(".forecast-container").empty();
         for (var i = 0; i < 7; i++) {
             var goodDay = false;
-
+            var weatherContent;
             code = res.data[i].weather.code;
             high = Math.round((res.data[i].max_temp * (9 / 5)) + 32);
             description = res.data[i].weather.description;
@@ -41,13 +41,24 @@ function getWeather() {
             if (goodWeather.indexOf(code) != -1) {
                 goodDay = true;
                 yesNo = "Great Day For a Beer!";
+                weatherContent = /*html*/ `
+                    <div class="card text-center card-width padding25 rounderCorners">
+                        <h3>${res.data[i].valid_date}</h3>
+                        <p>Is today a good day for a beer?</p>
+                        <h2 class="yes-no">${yesNo}</h2>
+                        <div> 
+                        <p>Conditions:<img
+                             style="width:40px; display:inline;" src="https://www.weatherbit.io/static/img/icons/${icon}.png"> <span
+                             class="dailyConditions">${description}</span></p> 
+                         <p>Max Temp: <span class="dailyTemp">${high}</span> | Hunmidity: <span class="dailyHumid">35</span>
+                        </p></div>
+                        <button id="breweryBtn" class="button">View Local Breweries</button>
+                 </div>
+             `
             }
             else {
                 yesNo = "Nahh";
-            }
-
-            // Set HTML content to a variable
-            var weatherContent = /*html*/ `
+                weatherContent = /*html*/ `
              <div class="card text-center card-width padding25 rounderCorners">
                      <h3>${res.data[i].valid_date}</h3>
                      <p>Is today a good day for a beer?</p>
@@ -58,9 +69,11 @@ function getWeather() {
                              class="dailyConditions">${description}</span></p> 
                          <p>Max Temp: <span class="dailyTemp">${high}</span> | Hunmidity: <span class="dailyHumid">35</span>
                      </p></div>
-                     <button id="breweryBtn" class="button">View Local Breweries</button>
                  </div>
              `
+            }
+
+            // Set HTML content to a variable
 
             // on Append we just simply name the variable above
             $("#forecast").append(weatherContent)
@@ -89,7 +102,7 @@ function renderBreweries() {
         url: breweryQueryURL
     }).then(function (response) {
         console.log(response);
-        
+
         brewName = response[0].name;
         brewType = response[0].brewery_type;
         brewAddress = response[0].street;
@@ -97,7 +110,7 @@ function renderBreweries() {
 
         console.log(brewName, brewType, brewAddress, brewWebsite);
 
-        
+
         //for i = 0; i < response.length; i++ to get all the breweries
 
     })
