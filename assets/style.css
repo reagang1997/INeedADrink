@@ -103,3 +103,17 @@ html, body {
     width:40px;
     display:inline;
 }
+
+#breweries{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex:1;
+}
+
+.brewery{
+    text-align: center;
+    border: 1px solid gainsboro;
+    width: 60%;
+    margin-top: 25px;
+}
