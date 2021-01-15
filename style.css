@@ -7,7 +7,9 @@
     background-size: cover;
     position: relative;
 }
-.card {
+
+ /* This is a foundation class name, cannot reuse this name */
+/* .card {
 
     display: flex;
     align-items: center;
@@ -22,7 +24,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+} */
 
 .seach-by-city {
     text-align: center;
