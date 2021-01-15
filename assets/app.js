@@ -42,17 +42,21 @@ function getWeather() {
 
             if (goodWeather.indexOf(code) != -1) {
                 goodDay = true;
+                // yesNo = "Great Day For a Beer!";
                 yesNo = "Great Day For a Beer!";
+                var imageGood = /*html*/ `<img src="assets/images/great-day.svg" style="display:inline;" alt="Great Day!">
+                `
                 weatherContent = /*html*/ `
                     <div class="card text-center card-width padding25 rounderCorners">
-                        <h3>${res.data[i].valid_date}</h3>
-                        <p>Is today a good day for a beer?</p>
-                        <h2 class="yes-no">${yesNo}</h2>
-                        <div> 
-                        <p>Conditions:<img
+                    
+                    <h4>${res.data[i].valid_date}</h4>
+                       
+                    <div class="marginT-20">${imageGood}</div>
+                    <div> 
+                        <p>Max Temp: <span class="dailyTemp">${high}</span>  |  Conditions:<img
                              style="width:40px; display:inline;" src="https://www.weatherbit.io/static/img/icons/${icon}.png"> <span
-                             class="dailyConditions">${description}</span></p> 
-                         <p>Max Temp: <span class="dailyTemp">${high}</span> | Hunmidity: <span class="dailyHumid">35</span>
+                             class="dailyConditions">${description}</span>
+                           |  Humidity: <span class="dailyHumid">35</span>
                         </p></div>
                         <button id="breweryBtn" class="button">View Local Breweries</button>
                  </div>
@@ -60,11 +64,14 @@ function getWeather() {
             }
             else {
                 yesNo = "Nahh";
+                yesNo = "Great Day For a Beer!";
+                var imageBad = /*html*/ `<img src="assets/images/bad-day.svg" style="display:inline;" alt="Great Day!">
+                `
                 weatherContent = /*html*/ `
              <div class="card text-center card-width padding25 rounderCorners">
-                     <h3>${res.data[i].valid_date}</h3>
-                     <p>Is today a good day for a beer?</p>
-                     <h2 class="yes-no">${yesNo}</h2>
+                     <h4>${res.data[i].valid_date}</h4>
+                     <div class="marginT-20">${imageBad}</div>
+                    <div> 
                      <div> 
                      <p>Conditions:<img
                              style="width:40px; display:inline;" src="https://www.weatherbit.io/static/img/icons/${icon}.png"> <span
@@ -107,26 +114,37 @@ function getWeather() {
 // ==================================
 //Brewery List API
 
-breweryQueryURL = "https://api.openbrewerydb.org/breweries?by_city=" + city
+
 
 var brewName, brewType, brewAddress, brewWebsite;
 
 function renderBreweries() {
+    var breweryQueryURL = "https://api.openbrewerydb.org/breweries?by_city=" + city
+    console.log(city);
     $.ajax({
         method: "GET",
         url: breweryQueryURL
     }).then(function (response) {
         console.log(response);
 
-        brewName = response[0].name;
-        brewType = response[0].brewery_type;
-        brewAddress = response[0].street;
-        brewWebsite = response[0].website_url;
 
         console.log(brewName, brewType, brewAddress, brewWebsite);
 
-
-        //for i = 0; i < response.length; i++ to get all the breweries
+        for(var i = 0; i < response.length; i++){
+            
+        brewName = response[i].name;
+        brewType = response[i].brewery_type;
+        brewAddress = response[i].street;
+        brewWebsite = response[i].website_url;
+            $("#breweries").append(/*html*/ `
+            <div class="brewery padding25 rounderCorners" >
+            <h4 class="brewName">${brewName}</h4>
+            <p>Type: <span class="brewType">${brewType}</span></p>
+            <p>Address: ${brewAddress}</p>
+            <a href="${brewWebsite}">${brewWebsite}</a>
+        </div>
+            `)
+        }
 
     })
 }
@@ -136,4 +154,10 @@ $(".submit").on("click", function (event) {
     console.log("click")
     city = $("#input-search").val();
     getWeather()
+})
+
+$("#forecast").on("click", "#breweryBtn", function(event){
+    event.preventDefault();
+    city = $("#input-search").val();
+    renderBreweries();
 })
