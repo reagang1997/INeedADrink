@@ -1,3 +1,22 @@
+/* No Margin or Padding on the HTML or body */
+html, body {
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Set Everything to Box Sizing */
+  * {
+    box-sizing: border-box;
+  }
+
+  .main-container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex:1;
+    margin-top: 100px;
+}
+
 .bar-image {
     background-image: url("https://www.brasstapbeerbar.com/images/slides/beer-taps.jpg");
     background-color: #cccccc;
@@ -7,7 +26,9 @@
     background-size: cover;
     position: relative;
 }
-.card {
+
+ /* This is a foundation class name, cannot reuse this name */
+/* .card {
 
     display: flex;
     align-items: center;
@@ -22,7 +43,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
+} */
 
 .seach-by-city {
     text-align: center;
@@ -63,4 +84,22 @@
     height: auto;
     width: 35%;
     padding: 15px;
+}
+
+.padding25 {
+    padding: 20px;
+}
+
+.rounderCorners {
+    border-radius: 20px
+}
+
+.card-width {
+    width:75%;
+}
+
+/* * Resises Condition Icon */
+.conditions-content {
+    width:40px;
+    display:inline;
 }
