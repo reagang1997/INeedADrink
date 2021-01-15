@@ -1,6 +1,6 @@
 
 //Empty Variable to pass the city search should hopefully work for both Weather and Brewery API at the same time
-city = "Dallas"
+var city = "";
 
 
 // ==================================
@@ -14,9 +14,9 @@ var yesNo;
 
 $(document).ready(function () {
     //Get the Weather API
-    getWeather(city);
-    // Get The Brewery API
-    renderBreweries()
+    // getWeather(city);
+    // // Get The Brewery API
+    // renderBreweries()
 
 });
 
@@ -37,6 +37,8 @@ function getWeather() {
             high = Math.round((res.data[i].max_temp * (9 / 5)) + 32);
             description = res.data[i].weather.description;
             icon = res.data[i].weather.icon;
+
+            // $("#forecast").empty()
 
             if (goodWeather.indexOf(code) != -1) {
                 goodDay = true;
@@ -80,10 +82,23 @@ function getWeather() {
 
         }
         //function for the slick slider
-        $(".lazy").slick({
-            lazyLoad: 'ondemand', // ondemand progressive anticipated
-            infinite: true
-        });
+        if ($("#forecast").hasClass("slick-initialized")) {
+            console.log("If Running")
+            // return
+            $("#forecast").slick('unslick')
+            console.log("unslick")
+            $("#forecast").slick({
+                lazyLoad: 'ondemand', // ondemand progressive anticipated
+                infinite: true
+            });
+            console.log("Slick")
+        } else {
+            console.log("SLICK")
+            $("#forecast").slick({
+                lazyLoad: 'ondemand', // ondemand progressive anticipated
+                infinite: true
+            });
+        }
     })
 }
 
@@ -116,3 +131,9 @@ function renderBreweries() {
     })
 }
 
+$(".submit").on("click", function (event) {
+    event.preventDefault();
+    console.log("click")
+    city = $("#input-search").val();
+    getWeather()
+})
