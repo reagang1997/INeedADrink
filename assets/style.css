@@ -85,6 +85,10 @@ html, body {
     padding: 15px;
 }
 
+.marginT-20 {
+    margin:20px 0;
+}
+
 .padding25 {
     padding: 20px;
 }
@@ -124,4 +128,18 @@ html, body {
 ul {
     font-size: 20px;
     font-weight: bold;
+}
+=======
+#breweries{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex:1;
+}
+
+.brewery{
+    text-align: center;
+    border: 1px solid gainsboro;
+    width: 60%;
+    margin-top: 25px;
 }
