@@ -2,14 +2,14 @@
 html, body {
     margin: 0;
     padding: 0;
-  }
+}
 
   /* Set Everything to Box Sizing */
   * {
     box-sizing: border-box;
-  }
+}
 
-  .main-container{
+.main-container{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -17,33 +17,33 @@ html, body {
     margin-top: 100px;
 }
 
-.bar-image {
-    background-image: url("https://www.brasstapbeerbar.com/images/slides/beer-taps.jpg");
-    background-color: #cccccc;
-    height: 500px;
-    background-position: center;
-    background-repeat:repeat;
+.bar-tap {
+    background-image: url('https://pixabay.com/photos/bar-local-tap-beer-pub-brewery-4617528/');
+    background-repeat: no-repeat;
+    background-attachment: fixed;  
     background-size: cover;
-    position: relative;
 }
 
- /* This is a foundation class name, cannot reuse this name */
-/* .card {
-
+.my-card {
     display: flex;
     align-items: center;
     flex-direction: column;
     flex:1;
     margin-top: 5px;
-
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 50px;
+    border-radius: 50px;
+}
+
+.card-divider {
+    border-radius: 40px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-} */
+}
 
 .seach-by-city {
     text-align: center;
@@ -52,7 +52,6 @@ html, body {
 }
 
 .submit {
-    border-radius: 30px;
     border: 1px solid #fff;
     color: #fff;
     background-color: navy;
@@ -102,4 +101,27 @@ html, body {
 .conditions-content {
     width:40px;
     display:inline;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: grey;
+    color: white;
+    text-align: center;
+}
+
+.responable {
+    font-size: 25px;
+    font-weight: bolder;
+    color: black;
+    text-align: center;
+    margin-top: 5px;
+}
+
+ul {
+    font-size: 20px;
+    font-weight: bold;
 }
