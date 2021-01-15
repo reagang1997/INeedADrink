@@ -66,3 +66,11 @@
     width: 35%;
     padding: 15px;
 }
+
+.padding25 {
+    padding: 20px;
+}
+
+.rounderCorners {
+    border-radius: 20px
+}

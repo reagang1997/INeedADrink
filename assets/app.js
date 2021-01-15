@@ -47,7 +47,7 @@ function getWeather() {
 
             // Set HTML content to a variable
             var weatherContent = /*html*/ `
-             <div class="card text-center card-width">
+             <div class="card text-center card-width padding25 rounderCorners">
                      <h3>${res.data[i].valid_date}</h3>
                      <p>Is today a good day for a beer?</p>
                      <h2 class="yes-no">${yesNo}</h2>
