@@ -46,48 +46,31 @@ function getWeather() {
                 yesNo = "Nahh";
             }
 
-            if(goodDay){
-                $(".forecast-container").append(/*html*/ `
-                <div class="day-card">
-        
-                    <p><span class="date">${res.data[i].valid_date}</span></p>
-                    <p>Good Day For a Beer?</p>
-    
-                    <p><span class="yes-no">${yesNo}</span></p>
-    
-                    <img src="https://www.weatherbit.io/static/img/icons/${icon}.png">
-    
-                    <p><span class="temp">${high}</span>&degF</p>
-    
-                    <p>Conditions: <span class="conditions">${description}</span></p>
-    
-                    <button class="local-brew">Find Me Local Breweries!</button>
-    
-                </div>
-                `)
-            }
-            else{
-                $(".forecast-container").append(/*html*/ `
-                <div class="day-card">
-        
-                    <p><span class="date">${res.data[i].valid_date}</span></p>
-                    <p>Good Day For a Beer?</p>
-    
-                    <p><span class="yes-no">${yesNo}</span></p>
-    
-                    <img src="https://www.weatherbit.io/static/img/icons/${icon}.png">
-    
-                    <p><span class="temp">${high}</span>&degF</p>
-    
-                    <p>Conditions: <span class="conditions">${description}</span></p>
-    
-    
-                </div>
-                `)
-            }
-           
-        }
+            // Set HTML content to a variable
+            var weatherContent = /*html*/ `
+             <div class="card text-center card-width padding25 rounderCorners">
+                     <h3>${res.data[i].valid_date}</h3>
+                     <p>Is today a good day for a beer?</p>
+                     <h2 class="yes-no">${yesNo}</h2>
+                     <div> 
+                     <p>Conditions:<img
+                             style="width:40px; display:inline;" src="https://www.weatherbit.io/static/img/icons/${icon}.png"> <span
+                             class="dailyConditions">${description}</span></p> 
+                         <p>Max Temp: <span class="dailyTemp">${high}</span> | Hunmidity: <span class="dailyHumid">35</span>
+                     </p></div>
+                     <button id="breweryBtn" class="button">View Local Breweries</button>
+                 </div>
+             `
 
+            // on Append we just simply name the variable above
+            $("#forecast").append(weatherContent)
+
+        }
+        //function for the slick slider
+        $(".lazy").slick({
+            lazyLoad: 'ondemand', // ondemand progressive anticipated
+            infinite: true
+        });
     })
 }
 
