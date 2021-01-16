@@ -86,8 +86,13 @@ html, body {
     padding: 15px;
 }
 
-/* Helped CSS Classes */
+/**********************/
+/* Helper CSS Classes */
 .marginT-20 {
+    margin:20px 0 0;
+}
+
+.marginY-20 {
     margin:20px 0;
 }
 
@@ -116,6 +121,9 @@ html, body {
 .card-width {
     width:75%;
 }
+/**********************/
+
+
 
 /* * Resises Condition Icon */
 .conditions-content {

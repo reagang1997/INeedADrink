@@ -60,9 +60,9 @@ function getWeather() {
                     <div class="card-divider bgGood">
                     </div>
                     <p class="marginT-20">${finalDate}</p>
-                    <div class="marginT-20">${imageGood}</div>
+                    <div class="marginY-20">${imageGood}</div>
                     <div> 
-                        <p>Max Temp: <span class="dailyTemp">${high}</span>  |  Conditions:<img
+                        <p>Max Temp: <span class="dailyTemp">${high}°</span>  |  Conditions:<img
                              style="width:40px; display:inline;" src="https://www.weatherbit.io/static/img/icons/${icon}.png"> <span
                              class="dailyConditions">${description}</span>
                            |  Humidity: <span class="dailyHumid">35</span>
@@ -89,13 +89,13 @@ function getWeather() {
                     <div class="card-divider bgBad">        
                     </div>
                     <h4 class="marginT-20">${finalDate}</h4>
-                    <div class="marginT-20">${imageBad}</div>
+                    <div class="marginY-20">${imageBad}</div>
                     <div> 
                      <div> 
-                     <p>Conditions:<img
+                     <p>Max Temp: <span class="dailyTemp">${high}°</span>  |  Conditions:<img
                              style="width:40px; display:inline;" src="https://www.weatherbit.io/static/img/icons/${icon}.png"> <span
-                             class="dailyConditions">${description}</span></p> 
-                         <p>Max Temp: <span class="dailyTemp">${high}</span> | Hunmidity: <span class="dailyHumid">35</span>
+                             class="dailyConditions">${description}</span>  |  
+                          Humidity: <span class="dailyHumid">35</span>
                      </p></div>
                  </div>
              `
