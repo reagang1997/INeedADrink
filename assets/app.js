@@ -143,11 +143,7 @@ function renderBreweries() {
     }).then(function (response) {
         console.log(response);
 
-
-        console.log(brewName, brewType, brewAddress, brewWebsite);
-
         for (var i = 0; i < response.length; i++) {
-
             brewName = response[i].name;
             brewType = response[i].brewery_type;
             brewAddress = response[i].street;
@@ -158,7 +154,7 @@ function renderBreweries() {
                 <h4 class="brewName">${brewName}</h4>
                 <p>Type: <span class="brewType">${brewType}</span><br>
                     Address: ${brewAddress}<br>
-                    <a href="${brewWebsite}">${brewWebsite}</a>
+                    <a href="${brewWebsite}" target="blank">${brewWebsite}</a>
                 </p>
             </div>
             `)
