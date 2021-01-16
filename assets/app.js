@@ -26,11 +26,11 @@ function getWeather() {
         method: "GET",
         url: weatherURL + "city=" + city + "&key=" + weatherKey
     }).then(function (res) {
-
+        console.log(res)
         var high, description, icon, code;
 
         $(".forecast-container").empty();
-        for (var i = 0; i < 7; i++) {
+        for (var i = 0; i <= 7; i++) {
             var goodDay = false;
             var weatherContent;
             code = res.data[i].weather.code;
@@ -44,12 +44,14 @@ function getWeather() {
                 goodDay = true;
                 // yesNo = "Great Day For a Beer!";
                 // yesNo = "Great Day For a Beer!";
-                //  Adding variable for date so we can reformat it
+                //  Adding variables for date so we can reformat it
                 var responseDate = res.data[i].valid_date;
-                // console.log(responseDate)
-                var removeYear = responseDate.substr(5)
-                // console.log(removeYear)
-                var finalDate = removeYear + "-21"
+                //monthDay grabs only the month and the day from response
+                var monthDay = responseDate.substr(5)
+                // year grabs only the year
+                var year = responseDate.substr(0, 4)
+                // final date combine both with a dash in between the day and year
+                var finalDate = monthDay + "-" + year
                 console.log(finalDate)
 
                 var imageGood = /*html*/ `<img src="assets/images/great-day.svg" style="display:inline;" alt="Great Day!">
