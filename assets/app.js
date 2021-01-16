@@ -174,7 +174,7 @@ function renderBreweries() {
             if (brewType === "planning") {
                 continue;
             }
-            if(favBrews.indexOf(brewName) != -1){
+            if (favBrews.indexOf(brewName) != -1) {
                 $("#brewery-container").append(/*html*/ `
             <div class="card margin5 rounderCorners">
                 <h4 class="brewName">${brewName}</h4>
@@ -185,18 +185,19 @@ function renderBreweries() {
             </div>
             `)
             }
-            else{
+            else {
                 $("#brewery-container").append(/*html*/ `
-                <div class="card margin5 rounderCorners">
+                <div class="card margin5 rounderCorners pos-relative">
+                    <div id="favorite" class="pos-absolute fav-icon-pos"> <i id="heart" class="far fa-heart"></i></div>
                     <h4 class="brewName">${brewName}</h4>
-                    <p>Type: <span class="brewType">${brewType}  <i id="heart" class="far fa-heart"></i></span><br>
+                    <p>Type: <span class="brewType">${brewType}<br>
                         Address: ${brewAddress}<br>
                         <a href="${brewWebsite}" target="blank">${brewWebsite}</a>
                     </p>
                 </div>
                 `)
             }
-            
+
         }
 
     })

@@ -137,6 +137,23 @@ html, body {
     padding-bottom:20px;
 }
 
+.pos-relative {
+    position:relative
+}
+
+.pos-absolute {
+    position:absolute;
+}
+
+.fav-icon-pos {
+    right: 16px;
+    top: 10px;
+}
+
+.fas {
+    color:#F23030;
+}
+
 .rounderCorners {
     border-radius: 20px
 }
