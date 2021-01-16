@@ -6,107 +6,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Good Beer Day?</title>
-    <!-- jQuery -->
-    <!-- Foundation CSS -->
+    <!-- Foundation CompressedCSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css"
         integrity="sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=" crossorigin="anonymous">
 
     <!-- Slick Library CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/slick/slick.css">
-    <link rel="stylesheet" type="text/css" href="assets/slick/slick-theme.css">
-    <!-- Custom CSS  -->
+    <link rel="stylesheet" type="text/css" href="slick-assets/slick.css">
+    <link rel="stylesheet" type="text/css" href="slick-assets/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="assets/slick-addOn.css">
+    <!-- Custom CSS -->
     <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
 
 <body>
 
-    <!--div to hold the image-->
-    <div class="bar-image">
-        <img class="bar-tap" src="images/A064A438-870C-49C8-8B29-F8FD384015AB.jpeg" alt="bar tap">
-        <!--bar image to be placed as the background of the header-->
-
-        <!--div to for the card-->
-        <div class="my-card" style="width: 300px;">
-
+    <section class="bar-image">
+        <div class="card" style="width: 300px;">
             <div class="card-divider">
-
-
                 <div class="beer">
-
-                    <!--h1 to say Good Day...-->
-                    <h1>
-                        <em>Good Day For A Beer?</em>
-                    </h1>
-
-                    <!--form element to hold the search box and search button-->
+                    <h1>Good Day For A Beer</h1>
                     <form>
-
-                        <!--label to say Search By...-->
-                        <label class="seach-by-city">
-                            <em><b>Search By City:</b></em>
-                        </label>
-
-                        <!--the input box to search-->
-                        <input type="text" id="input-search" name="fname"><br>
-
-                        <!--button to search-->
+                        <label class="seach-by-city">Search By City:</label>
+                        <input list="input-drop" type="text" id="input-search" name="fname"><br>
+                        <datalist id="input-drop">
+                            
+                        </datalist>
                         <button class="submit" type="submit" value="Search">
-
                             Search
-
                         </button>
 
                     </form>
 
                 </div>
-
             </div>
     </section>
-    <section id="forecast" class="lazy library-slider card-width" data-sizes="50vw" aria-hidden="true">
+    <div class="fore-btn-wrap marginT-20 hide">
+        <button class="back-to-fore">
+            Show Forecast
+        </button>
+    </div>
+    
+    <section id="forecast" class="lazy library-slider card-width" data-sizes="50vw">
         <!-- Forcast Content Goes Here -->
     </section>
 
+    <div id="breweries" class="marginY-20 hide">
+        <div id="brewery-container" class="container text-center padding-x-20">
+            <!-- Brewery Content Goes Here -->
         </div>
 
     </div>
 
-    
-    <div id="breweries">
-        
-    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    
+    <!-- Slick JS files -->
+    <script src="slick-assets/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script src="slick-assets/slick.min.js" type="text/javascript"></script>
 
+    <!-- Font Awesome  -->
+    <script src="https://kit.fontawesome.com/c9bd0a09ba.js" crossorigin="anonymous"></script>
 
-    <div class="footer">
-
-        <p class="responable">
-            Please Drink Responably!
-        </p>
-
-
-        <ul class="menu align-center">
-            <li><a href="https://github.com/AngelCooper">Angel Cooper</a></li>
-            <li><a href="https://github.com/RojoRevolution">David Rojo</a></li>
-            <li><a href="https://github.com/reagang1997">Reagan Grunwald</a></li>
-        </ul>
-    </div>
-
-
-
-
-
-
-
-
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="assets/js/vendor.js"></script>
-    <script src="assets/js/foundation.js"></script>
-    <script src="assets/slick/slick.js" type="text/javascript" charset="utf-8"></script>
-    <script src="assets/slick/slick.min.js" type="text/javascript"></script>
+    <!-- Custom JS File -->
     <script src="assets/app.js"></script>
+
 </body>
 
 </html>
