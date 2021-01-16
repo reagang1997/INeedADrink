@@ -18,7 +18,7 @@ html, body {
 }
 
 .bar-image {
-    background-image: url("https://www.brasstapbeerbar.com/images/slides/beer-taps.jpg");
+    background-image: url("https://cdn.pixabay.com/photo/2019/11/11/08/07/bar-4617528_960_720.jpg");
     background-color: #cccccc;
     height: 500px;
     background-position: center;
@@ -28,7 +28,7 @@ html, body {
 }
 
  /* This is a foundation class name, cannot reuse this name */
-/* .card {
+ .my-card {
     display: flex;
     align-items: center;
     flex-direction: column;

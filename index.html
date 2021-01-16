@@ -19,33 +19,38 @@
 </head>
 
 <body>
-
     <section class="bar-image">
-        <div class="card" style="width: 300px;">
-            <div class="card-divider">
-                <div class="beer">
-                    <h1>Good Day For A Beer</h1>
-                    <form>
-                        <label class="seach-by-city">Search By City:</label>
-                        <input list="input-drop" type="text" id="input-search" name="fname"><br>
-                        <datalist id="input-drop">
-                            
-                        </datalist>
-                        <button class="submit" type="submit" value="Search">
-                            Search
-                        </button>
+        <div class="grid-x">
+            <div class="my-card" style="width: 300px;">
 
-                    </form>
+                <div class="card-divider">
+                    <div class="beer">
+                        <h1>Good Day For A Beer</h1>
+                        <form>
+                            <label class="seach-by-city">Search By City:</label>
+                            <input list="input-drop" type="text" id="input-search" name="fname"><br>
+                            <datalist id="input-drop">
 
+                            </datalist>
+                            <button class="submit" type="submit" value="Search">
+                                Search
+                            </button>
+
+                        </form>
+
+                    </div>
                 </div>
             </div>
     </section>
+
+
+
     <div class="fore-btn-wrap marginT-20 hide">
         <button class="back-to-fore">
             Show Forecast
         </button>
     </div>
-    
+
     <section id="forecast" class="lazy library-slider card-width" data-sizes="50vw">
         <!-- Forcast Content Goes Here -->
     </section>
