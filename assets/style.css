@@ -9,7 +9,7 @@ html, body {
     box-sizing: border-box;
   }
 
-  .main-container{
+ .main-container{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -86,16 +86,48 @@ html, body {
     padding: 15px;
 }
 
+/**********************/
+/* Helper CSS Classes */
 .marginT-20 {
+    margin:20px 0 0;
+}
+
+.marginY-20 {
     margin:20px 0;
+}
+
+.margin20 {
+    margin:20px;
+}
+
+.margin5 {
+    margin:5px;
 }
 
 .padding25 {
     padding: 20px;
 }
 
+.padding-x-20 {
+    padding: 0 20px;
+}
+
+.paddingB-20 {
+    padding-bottom:20px;
+}
+
 .rounderCorners {
     border-radius: 20px
+}
+
+.bgGood {
+    background-color:#1779ba;
+    color:#ffffff;
+}
+
+.bgBad {
+    background-color:#cc4b37;
+    color: #ffffff;
 }
 
 .card-width {
@@ -108,16 +140,55 @@ html, body {
     display:inline;
 }
 
+/**********************/
+
+
+
+
 #breweries{
-    display: flex;
+    /* display: flex;
     align-items: center;
     flex-direction: column;
-    flex:1;
+    flex:1; */
+    width: 100%;
+}
+
+#breweries .container {
+    max-width: 1200px;
+    margin:0 auto;
+}
+
+#breweries .container .card {
+    width: 40%;
+    padding: 20px;
+    display: inline-block;
+    vertical-align: top;
+    min-height: 160px;
 }
 
 .brewery{
-    text-align: center;
+    text-align: center; */
     border: 1px solid gainsboro;
-    width: 60%;
-    margin-top: 25px;
+    width: 100%;
+    margin-top: 25px; 
+}
+
+
+
+/* ============================= */
+/* Helper Media Queries */
+/* ============================= */
+
+@media screen and (max-width: 1024px) {
+    #breweries .container .card  {
+        min-height: 240px;
+    }
+}
+@media screen and (max-width: 768px) {
+    #breweries .container .card  {
+        width:95%;
+        min-height:100px;
+    }
+
+
 }
