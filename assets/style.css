@@ -28,14 +28,12 @@ html, body {
 }
 
  /* This is a foundation class name, cannot reuse this name */
-/* .card {
-
+.my-card {
     display: flex;
     align-items: center;
     flex-direction: column;
     flex:1;
     margin-top: 5px;
-
     text-align: center;
     margin-left: auto;
     margin-right: auto;
