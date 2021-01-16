@@ -58,7 +58,7 @@ function getWeather() {
                              class="dailyConditions">${description}</span>
                            |  Humidity: <span class="dailyHumid">35</span>
                         </p></div>
-                        <button id="breweryBtn" class="button">View Local Breweries</button>
+                        <button id="breweryBtn" class="button rounderCorners">View Local Breweries</button>
                  </div>
              `
             }
@@ -129,12 +129,12 @@ function renderBreweries() {
 
         console.log(brewName, brewType, brewAddress, brewWebsite);
 
-        for(var i = 0; i < response.length; i++){
-            
-        brewName = response[i].name;
-        brewType = response[i].brewery_type;
-        brewAddress = response[i].street;
-        brewWebsite = response[i].website_url;
+        for (var i = 0; i < response.length; i++) {
+
+            brewName = response[i].name;
+            brewType = response[i].brewery_type;
+            brewAddress = response[i].street;
+            brewWebsite = response[i].website_url;
             $("#breweries").append(/*html*/ `
             <div class="brewery padding25 rounderCorners" >
             <h4 class="brewName">${brewName}</h4>
@@ -155,7 +155,7 @@ $(".submit").on("click", function (event) {
     getWeather()
 })
 
-$("#forecast").on("click", "#breweryBtn", function(event){
+$("#forecast").on("click", "#breweryBtn", function (event) {
     event.preventDefault();
     city = $("#input-search").val();
     renderBreweries();
