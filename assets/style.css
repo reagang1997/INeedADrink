@@ -28,7 +28,7 @@ html, body {
 }
 
  /* This is a foundation class name, cannot reuse this name */
-/* .card {
+.my-card {
 
     display: flex;
     align-items: center;
