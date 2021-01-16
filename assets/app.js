@@ -2,6 +2,13 @@
 //Empty Variable to pass the city search should hopefully work for both Weather and Brewery API at the same time
 var city = "";
 
+if(localStorage.getItem("citySearches")){
+    var citySearches = JSON.parse(localStorage.getItem("citySearches"));
+}
+else{
+    var citySearches = [];
+}
+
 
 // ==================================
 //Weather API
@@ -171,6 +178,9 @@ $(".submit").on("click", function (event) {
     event.preventDefault();
     console.log("click")
     city = $("#input-search").val();
+    citySearches.push(city);
+    console.log(citySearches);
+    localStorage.setItem("citySearches", JSON.stringify(citySearches));
     $("#input-search").val("");
     getWeather()
     $("#brewery-container").empty();
