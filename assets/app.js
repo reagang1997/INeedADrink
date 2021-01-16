@@ -158,6 +158,13 @@ function renderBreweries() {
     }).then(function (response) {
         console.log(response);
 
+        $("#brewery-container").append(/*html*/ `
+        <div class="fore-btn-wrap marginT-20">
+        <button id="backToForecast" class="button rounderCorners">
+            Back to Forecast
+        </button></div>
+        `)
+
         for (var i = 0; i < response.length; i++) {
             brewName = response[i].name;
             brewType = response[i].brewery_type;
@@ -212,15 +219,18 @@ $(".submit").on("click", function (event) {
 })
 
 $("#forecast").on("click", "#breweryBtn", function (event) {
+    event.preventDefault();
+    //added function to empty the brewery container on clicking the view brewery buttons
+    $("#brewery-container").empty();
     $("#forecast").addClass("hide");
     $(".fore-btn-wrap").removeClass("hide");
     $("#breweries").removeClass("hide");
 
-    event.preventDefault();
     renderBreweries();
 })
 
-$(".back-to-fore").on("click", function (event) {
+//removed back to forecast click event and included the new button in the brewery container click event
+$("#brewery-container").on("click", "#backToForecast", function (event) {
     event.preventDefault();
     $("#breweries").addClass("hide");
     $(".fore-btn-wrap").addClass("hide");
