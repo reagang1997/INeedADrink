@@ -9,7 +9,7 @@ html, body {
     box-sizing: border-box;
   }
 
-  .main-container{
+ .main-container{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -86,7 +86,13 @@ html, body {
     padding: 15px;
 }
 
+/**********************/
+/* Helper CSS Classes */
 .marginT-20 {
+    margin:20px 0 0;
+}
+
+.marginY-20 {
     margin:20px 0;
 }
 
@@ -94,13 +100,30 @@ html, body {
     padding: 20px;
 }
 
+.paddingB-20 {
+    padding-bottom:20px;
+}
+
 .rounderCorners {
     border-radius: 20px
+}
+
+.bgGood {
+    background-color:#1779ba;
+    color:#ffffff;
+}
+
+.bgBad {
+    background-color:#cc4b37;
+    color: #ffffff;
 }
 
 .card-width {
     width:75%;
 }
+/**********************/
+
+
 
 /* * Resises Condition Icon */
 .conditions-content {
