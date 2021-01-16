@@ -211,7 +211,7 @@ function setDropdown() {
 
 
     $.each(citySearches, function (i, item) {
-        $("#input-drop").append($("<option>").attr('value', i).text(item));
+        $("#input-drop").append($("<option>").text(item));
     });
 }
 
