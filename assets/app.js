@@ -57,8 +57,7 @@ function getWeather() {
                 `
                 weatherContent = /*html*/ `
                     <div class="card text-center card-width rounderCorners paddingB-20">
-                    <div class="card-divider bgGood">
-                    </div>
+                    <div class="card-divider bgGood"></div>
                     <p class="marginT-20">${finalDate}</p>
                     <div class="marginY-20">${imageGood}</div>
                     <div> 
@@ -86,9 +85,8 @@ function getWeather() {
                 `
                 weatherContent = /*html*/ `
              <div class="card text-center card-width rounderCorners paddingB-20">
-                    <div class="card-divider bgBad">        
-                    </div>
-                    <h4 class="marginT-20">${finalDate}</h4>
+                    <div class="card-divider bgBad"></div>
+                    <p class="marginT-20">${finalDate}</p>
                     <div class="marginY-20">${imageBad}</div>
                     <div> 
                      <div> 
