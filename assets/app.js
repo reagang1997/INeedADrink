@@ -200,6 +200,7 @@ $(".submit").on("click", function (event) {
 
 $("#forecast").on("click", "#breweryBtn", function (event) {
     event.preventDefault();
+    //added function to empty the brewery container on clicking the view brewery buttons
     $("#brewery-container").empty();
     $("#forecast").addClass("hide");
     $(".fore-btn-wrap").removeClass("hide");
@@ -208,12 +209,7 @@ $("#forecast").on("click", "#breweryBtn", function (event) {
     renderBreweries();
 })
 
-// $("#backToForecast").on("click", function (event) {
-//     event.preventDefault();
-//     $("#breweries").addClass("hide");
-//     $(".fore-btn-wrap").addClass("hide");
-//     $("#forecast").removeClass("hide");
-// })
+//removed back to forecast click event and included the new button in the brewery container click event
 $("#brewery-container").on("click", "#backToForecast", function (event) {
     event.preventDefault();
     $("#breweries").addClass("hide");
