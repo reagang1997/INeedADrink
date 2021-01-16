@@ -2,10 +2,11 @@
 //Empty Variable to pass the city search should hopefully work for both Weather and Brewery API at the same time
 var city = "";
 
-if(localStorage.getItem("citySearches")){
+if (localStorage.getItem("citySearches")) {
     var citySearches = JSON.parse(localStorage.getItem("citySearches"));
+    setDropdown();
 }
-else{
+else {
     var citySearches = [];
 }
 
@@ -156,7 +157,7 @@ function renderBreweries() {
             brewAddress = response[i].street;
             brewWebsite = response[i].website_url;
             //logic for skipping planning
-            if(brewType === "planning"){
+            if (brewType === "planning") {
                 continue;
             }
 
@@ -178,9 +179,13 @@ $(".submit").on("click", function (event) {
     event.preventDefault();
     console.log("click")
     city = $("#input-search").val();
-    citySearches.push(city);
+    if (citySearches.indexOf(city) === -1) {
+        citySearches.push(city);
+        localStorage.setItem("citySearches", JSON.stringify(citySearches));
+        setDropdown();
+    }
+
     console.log(citySearches);
-    localStorage.setItem("citySearches", JSON.stringify(citySearches));
     $("#input-search").val("");
     getWeather()
     $("#brewery-container").empty();
@@ -190,16 +195,24 @@ $("#forecast").on("click", "#breweryBtn", function (event) {
     $("#forecast").addClass("hide");
     $(".fore-btn-wrap").removeClass("hide");
     $("#breweries").removeClass("hide");
-    
+
     event.preventDefault();
     renderBreweries();
 })
 
-$(".back-to-fore").on("click", function(event){
+$(".back-to-fore").on("click", function (event) {
     event.preventDefault();
     $("#breweries").addClass("hide");
     $(".fore-btn-wrap").addClass("hide");
     $("#forecast").removeClass("hide");
 })
+
+function setDropdown() {
+
+
+    $.each(citySearches, function (i, item) {
+        $("#input-drop").append($("<option>").attr('value', i).text(item));
+    });
+}
 
 
