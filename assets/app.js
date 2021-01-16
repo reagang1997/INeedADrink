@@ -10,6 +10,13 @@ else {
     var citySearches = [];
 }
 
+if (localStorage.getItem("favBrews")) {
+    var citySearches = JSON.parse(localStorage.getItem("favBrews"));
+}
+else {
+    var favBrews = [];
+}
+
 
 // ==================================
 //Weather API
@@ -160,16 +167,29 @@ function renderBreweries() {
             if (brewType === "planning") {
                 continue;
             }
-
-            $("#brewery-container").append(/*html*/ `
+            if(favBrews.indexOf(brewName) != -1){
+                $("#brewery-container").append(/*html*/ `
             <div class="card margin5 rounderCorners">
                 <h4 class="brewName">${brewName}</h4>
-                <p>Type: <span class="brewType">${brewType}</span><br>
+                <p>Type: <span class="brewType">${brewType}  <i id="heart" class="fas fa-heart"></i></span><br>
                     Address: ${brewAddress}<br>
                     <a href="${brewWebsite}" target="blank">${brewWebsite}</a>
                 </p>
             </div>
             `)
+            }
+            else{
+                $("#brewery-container").append(/*html*/ `
+                <div class="card margin5 rounderCorners">
+                    <h4 class="brewName">${brewName}</h4>
+                    <p>Type: <span class="brewType">${brewType}  <i id="heart" class="far fa-heart"></i></span><br>
+                        Address: ${brewAddress}<br>
+                        <a href="${brewWebsite}" target="blank">${brewWebsite}</a>
+                    </p>
+                </div>
+                `)
+            }
+            
         }
 
     })
@@ -205,6 +225,24 @@ $(".back-to-fore").on("click", function (event) {
     $("#breweries").addClass("hide");
     $(".fore-btn-wrap").addClass("hide");
     $("#forecast").removeClass("hide");
+})
+
+$("#brewery-container").on("click", "#heart", function (event) {
+    console.log('heart clicked');
+    console.log();
+
+    var tmp = this.parentElement.parentElement.previousElementSibling.textContent;
+
+    $(this).removeClass("far")
+        .addClass("fas");
+
+    if (favBrews.indexOf(tmp) === -1) {
+        favBrews.push(tmp);
+        localStorage.setItem("favBrews", JSON.stringify(favBrews));
+    }
+
+    console.log(favBrews);
+
 })
 
 function setDropdown() {
