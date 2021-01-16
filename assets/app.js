@@ -10,7 +10,7 @@ var weatherKey = "fb5c4c3b9af04b90ba63cec252a9d051";
 
 var goodWeather = [800, 801, 802, 803];
 
-var yesNo;
+// var yesNo;
 
 $(document).ready(function () {
     //Get the Weather API
@@ -43,13 +43,21 @@ function getWeather() {
             if (goodWeather.indexOf(code) != -1) {
                 goodDay = true;
                 // yesNo = "Great Day For a Beer!";
-                yesNo = "Great Day For a Beer!";
+                // yesNo = "Great Day For a Beer!";
+                //  Adding variable for date so we can reformat it
+                var responseDate = res.data[i].valid_date;
+                // console.log(responseDate)
+                var removeYear = responseDate.substr(5)
+                // console.log(removeYear)
+                var finalDate = removeYear + "-21"
+                console.log(finalDate)
+
                 var imageGood = /*html*/ `<img src="assets/images/great-day.svg" style="display:inline;" alt="Great Day!">
                 `
                 weatherContent = /*html*/ `
                     <div class="card text-center card-width padding25 rounderCorners">
                     
-                    <h4>${res.data[i].valid_date}</h4>
+                    <h4>${finalDate}</h4>
                        
                     <div class="marginT-20">${imageGood}</div>
                     <div> 
@@ -63,13 +71,13 @@ function getWeather() {
              `
             }
             else {
-                yesNo = "Nahh";
-                yesNo = "Great Day For a Beer!";
+                // yesNo = "Nahh";
+                // yesNo = "Great Day For a Beer!";
                 var imageBad = /*html*/ `<img src="assets/images/bad-day.svg" style="display:inline;" alt="Great Day!">
                 `
                 weatherContent = /*html*/ `
              <div class="card text-center card-width padding25 rounderCorners">
-                     <h4>${res.data[i].valid_date}</h4>
+                     <h4>${finalDate}</h4>
                      <div class="marginT-20">${imageBad}</div>
                     <div> 
                      <div> 
