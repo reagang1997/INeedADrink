@@ -168,6 +168,7 @@ $(".submit").on("click", function (event) {
     console.log("click")
     city = $("#input-search").val();
     getWeather()
+    $("#brewery-container").empty();
 })
 
 $("#forecast").on("click", "#breweryBtn", function (event) {
