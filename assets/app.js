@@ -148,7 +148,11 @@ function renderBreweries() {
             brewType = response[i].brewery_type;
             brewAddress = response[i].street;
             brewWebsite = response[i].website_url;
-            //adjusted Dynamic HTML
+            //logic for skipping planning
+            if(brewType === "planning"){
+                continue;
+            }
+
             $("#brewery-container").append(/*html*/ `
             <div class="card margin5 rounderCorners">
                 <h4 class="brewName">${brewName}</h4>
