@@ -56,10 +56,10 @@ function getWeather() {
                 var imageGood = /*html*/ `<img src="assets/images/great-day.svg" style="display:inline;" alt="Great Day!">
                 `
                 weatherContent = /*html*/ `
-                    <div class="card text-center card-width rounderCorners">
-                    <div class="card-divider">
-                    <h4>${finalDate}</h4>
+                    <div class="card text-center card-width rounderCorners paddingB-20">
+                    <div class="card-divider bgGood">
                     </div>
+                    <p class="marginT-20">${finalDate}</p>
                     <div class="marginT-20">${imageGood}</div>
                     <div> 
                         <p>Max Temp: <span class="dailyTemp">${high}</span>  |  Conditions:<img
@@ -85,10 +85,10 @@ function getWeather() {
                 var imageBad = /*html*/ `<img src="assets/images/bad-day.svg" style="display:inline;" alt="Great Day!">
                 `
                 weatherContent = /*html*/ `
-             <div class="card text-center card-width rounderCorners">
-                    <div class="card-divider">        
-                    <h4>${finalDate}</h4>
+             <div class="card text-center card-width rounderCorners paddingB-20">
+                    <div class="card-divider bgBad">        
                     </div>
+                    <h4 class="marginT-20">${finalDate}</h4>
                     <div class="marginT-20">${imageBad}</div>
                     <div> 
                      <div> 

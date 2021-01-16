@@ -9,7 +9,7 @@ html, body {
     box-sizing: border-box;
   }
 
-  .main-container{
+ .main-container{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -93,6 +93,10 @@ html, body {
 
 .padding25 {
     padding: 20px;
+}
+
+.paddingB-20 {
+    padding-bottom:20px;
 }
 
 .rounderCorners {
