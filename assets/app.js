@@ -143,22 +143,20 @@ function renderBreweries() {
     }).then(function (response) {
         console.log(response);
 
-
-        console.log(brewName, brewType, brewAddress, brewWebsite);
-
         for (var i = 0; i < response.length; i++) {
-
             brewName = response[i].name;
             brewType = response[i].brewery_type;
             brewAddress = response[i].street;
             brewWebsite = response[i].website_url;
-            $("#breweries").append(/*html*/ `
-            <div class="brewery padding25 rounderCorners" >
-            <h4 class="brewName">${brewName}</h4>
-            <p>Type: <span class="brewType">${brewType}</span></p>
-            <p>Address: ${brewAddress}</p>
-            <a href="${brewWebsite}">${brewWebsite}</a>
-        </div>
+            //adjusted Dynamic HTML
+            $("#brewery-container").append(/*html*/ `
+            <div class="card margin5 rounderCorners">
+                <h4 class="brewName">${brewName}</h4>
+                <p>Type: <span class="brewType">${brewType}</span><br>
+                    Address: ${brewAddress}<br>
+                    <a href="${brewWebsite}" target="blank">${brewWebsite}</a>
+                </p>
+            </div>
             `)
         }
 
@@ -170,6 +168,7 @@ $(".submit").on("click", function (event) {
     console.log("click")
     city = $("#input-search").val();
     getWeather()
+    $("#brewery-container").empty();
 })
 
 $("#forecast").on("click", "#breweryBtn", function (event) {
