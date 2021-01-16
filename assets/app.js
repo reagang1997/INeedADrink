@@ -152,13 +152,22 @@ function renderBreweries() {
             brewType = response[i].brewery_type;
             brewAddress = response[i].street;
             brewWebsite = response[i].website_url;
-            $("#breweries").append(/*html*/ `
-            <div class="brewery padding25 rounderCorners" >
-            <h4 class="brewName">${brewName}</h4>
-            <p>Type: <span class="brewType">${brewType}</span></p>
-            <p>Address: ${brewAddress}</p>
-            <a href="${brewWebsite}">${brewWebsite}</a>
-        </div>
+            //     $("#breweries").append(/*html*/ `
+            //     <div class="brewery padding25 rounderCorners" >
+            //     <h4 class="brewName">${brewName}</h4>
+            //     <p>Type: <span class="brewType">${brewType}</span></p>
+            //     <p>Address: ${brewAddress}</p>
+            //     <a href="${brewWebsite}">${brewWebsite}</a>
+            // </div>
+            //     `)
+            $("#brewery-container").append(/*html*/ `
+            <div class="card margin5 rounderCorners">
+                <h4 class="brewName">${brewName}</h4>
+                <p>Type: <span class="brewType">${brewType}</span><br>
+                    Address: ${brewAddress}<br>
+                    <a href="${brewWebsite}">${brewWebsite}</a>
+                </p>
+            </div>
             `)
         }
 
