@@ -52,7 +52,6 @@ function getWeather() {
                 var year = responseDate.substr(0, 4)
                 // final date combine both with a dash in between the day and year
                 var finalDate = monthDay + "-" + year
-                console.log(finalDate)
 
                 var imageGood = /*html*/ `<img src="assets/images/great-day.svg" style="display:inline;" alt="Great Day!">
                 `
@@ -75,6 +74,14 @@ function getWeather() {
             else {
                 // yesNo = "Nahh";
                 // yesNo = "Great Day For a Beer!";
+                //  Adding variables for date so we can reformat it
+                var responseDate = res.data[i].valid_date;
+                //monthDay grabs only the month and the day from response
+                var monthDay = responseDate.substr(5)
+                // year grabs only the year
+                var year = responseDate.substr(0, 4)
+                // final date combine both with a dash in between the day and year
+                var finalDate = monthDay + "-" + year
                 var imageBad = /*html*/ `<img src="assets/images/bad-day.svg" style="display:inline;" alt="Great Day!">
                 `
                 weatherContent = /*html*/ `
