@@ -167,12 +167,25 @@ $(".submit").on("click", function (event) {
     event.preventDefault();
     console.log("click")
     city = $("#input-search").val();
+    $("#input-search").val("");
     getWeather()
     $("#brewery-container").empty();
 })
 
 $("#forecast").on("click", "#breweryBtn", function (event) {
+    $("#forecast").addClass("hide");
+    $(".fore-btn-wrap").removeClass("hide");
+    $("#breweries").removeClass("hide");
+    
     event.preventDefault();
-    city = $("#input-search").val();
     renderBreweries();
 })
+
+$(".back-to-fore").on("click", function(event){
+    event.preventDefault();
+    $("#breweries").addClass("hide");
+    $(".fore-btn-wrap").addClass("hide");
+    $("#forecast").removeClass("hide");
+})
+
+
