@@ -99,6 +99,16 @@ html, body {
     border-radius: 20px
 }
 
+.bgGood {
+    background-color:#1779ba;
+    color:#ffffff;
+}
+
+.bgBad {
+    background-color:#cc4b37;
+    color: #ffffff;
+}
+
 .card-width {
     width:75%;
 }
