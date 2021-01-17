@@ -204,7 +204,7 @@ $(".submit").on("click", function (event) {
         localStorage.setItem("citySearches", JSON.stringify(citySearches));
         setDropdown();
     }
-
+    $("#forecast").removeClass("hide");
     console.log(citySearches);
     $("#input-search").val("");
     getWeather()
