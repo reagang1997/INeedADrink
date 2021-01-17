@@ -25,7 +25,6 @@ var weatherKey = "fb5c4c3b9af04b90ba63cec252a9d051";
 
 var goodWeather = [800, 801, 802, 803];
 
-// var yesNo;
 
 $(document).ready(function () {
     //Get the Weather API
@@ -44,6 +43,9 @@ function getWeather() {
         console.log(res)
         var high, description, icon, code;
 
+        var cityResponse = res.city_name
+        console.log(cityResponse)
+
         $(".forecast-container").empty();
         for (var i = 0; i <= 7; i++) {
             var goodDay = false;
@@ -57,8 +59,6 @@ function getWeather() {
 
             if (goodWeather.indexOf(code) != -1) {
                 goodDay = true;
-                // yesNo = "Great Day For a Beer!";
-                // yesNo = "Great Day For a Beer!";
                 //  Adding variables for date so we can reformat it
                 var responseDate = res.data[i].valid_date;
                 //monthDay grabs only the month and the day from response
@@ -73,7 +73,7 @@ function getWeather() {
                 weatherContent = /*html*/ `
                     <div class="card text-center card-width rounderCorners paddingB-20">
                     <div class="card-divider bgGood"></div>
-                    <p class="marginT-20">${finalDate}</p>
+                    <p class="marginT-20">${cityResponse} - ${finalDate}</p>
                     <div class="marginY-20">${imageGood}</div>
                     <div> 
                         <p>Max Temp: <span class="dailyTemp">${high}°</span>  |  Conditions:<img
@@ -86,8 +86,6 @@ function getWeather() {
              `
             }
             else {
-                // yesNo = "Nahh";
-                // yesNo = "Great Day For a Beer!";
                 //  Adding variables for date so we can reformat it
                 var responseDate = res.data[i].valid_date;
                 //monthDay grabs only the month and the day from response
@@ -101,7 +99,7 @@ function getWeather() {
                 weatherContent = /*html*/ `
              <div class="card text-center card-width rounderCorners paddingB-20">
                     <div class="card-divider bgBad"></div>
-                    <p class="marginT-20">${finalDate}</p>
+                    <p class="marginT-20">${cityResponse} - ${finalDate}</p>
                     <div class="marginY-20">${imageBad}</div>
                     <div> 
                      <div> 
@@ -113,9 +111,6 @@ function getWeather() {
                  </div>
              `
             }
-
-            // Set HTML content to a variable
-
             // on Append we just simply name the variable above
             $("#forecast").append(weatherContent)
 
@@ -145,9 +140,6 @@ function getWeather() {
 
 // ==================================
 //Brewery List API
-
-
-
 var brewName, brewType, brewAddress, brewWebsite;
 
 function renderBreweries() {
