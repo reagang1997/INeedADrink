@@ -18,12 +18,13 @@ html, body {
 }
 
 .bar-image {
-    background-image: url("https://cdn.pixabay.com/photo/2019/11/11/08/07/bar-4617528_960_720.jpg");
+    background-image: url("images/bg-image-1440.png");
     background-color: #cccccc;
-    height: 500px;
-    background-position: center;
-    background-repeat:repeat;
+    height: 375px;
+    background-position: top center;
+    background-repeat:no-repeat;
     background-size: cover;
+    background-attachment:fixed;
     position: relative;
 }
 
@@ -43,7 +44,8 @@ html, body {
 
 .search-container {
     margin:0 auto;
-    max-width: 600px;
+    padding: 40px 0 0;
+    max-width: 450px;
 }
 
 .search-container h1 {
@@ -58,14 +60,21 @@ html, body {
     align-items: center;
 }
 
+.search-field {
+    width: 60%;
+    display: inline;
+}
+
+
+
 .submit {
+    width:100%;
     font-weight:700;
     border-radius: 30px;
     color: #fff;
     background-color: #1779ba;
     text-transform: uppercase;
     letter-spacing: 1px;
-    width: 100%;
     padding: 1rem;
     transition: all ease .4s;
 }
@@ -154,11 +163,16 @@ html, body {
     position:absolute;
 }
 
+.y-align-top {
+    vertical-align: top;
+}
+
 .fav-icon-pos {
     right: 16px;
     top: 10px;
 }
 
+/* Color change for Heart Icon */
 .fas {
     color:#F23030;
 }
@@ -180,6 +194,11 @@ html, body {
 .card-width {
     width:75%;
 }
+
+/* Removed arrow from data list dropdown */
+input::-webkit-calendar-picker-indicator {
+    display: none;
+  }
 
 /* * Resises Condition Icon */
 .conditions-content {
