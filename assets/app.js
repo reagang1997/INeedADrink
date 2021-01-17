@@ -54,6 +54,8 @@ function getWeather() {
             high = Math.round((res.data[i].max_temp * (9 / 5)) + 32);
             description = res.data[i].weather.description;
             icon = res.data[i].weather.icon;
+            wind = res.data[i].wind_spd;
+            windspeed = Math.round(wind);
 
             // $("#forecast").empty()
 
@@ -68,21 +70,40 @@ function getWeather() {
                 // final date combine both with a dash in between the day and year
                 var finalDate = monthDay + "-" + year
 
-                var imageGood = /*html*/ `<img src="assets/images/great-day.svg" style="display:inline;" alt="Great Day!">
+                var imageGood = /*html*/ `<img src="assets/images/sunny-icon.svg" alt="Great Day Icon">
                 `
                 weatherContent = /*html*/ `
-                    <div class="card text-center card-width rounderCorners paddingB-20">
-                    <div class="card-divider bgGood"></div>
-                    <p class="marginT-20">${cityResponse} - ${finalDate}</p>
-                    <div class="marginY-20">${imageGood}</div>
-                    <div> 
-                        <p>Max Temp: <span class="dailyTemp">${high}°</span>  |  Conditions:<img
-                             style="width:40px; display:inline;" src="https://www.weatherbit.io/static/img/icons/${icon}.png"> <span
-                             class="dailyConditions">${description}</span>
-                           |  Humidity: <span class="dailyHumid">35</span>
-                        </p></div>
-                        <button id="breweryBtn" class="button rounderCorners">View Local Breweries</button>
+                <div class="card good-day rounderCorners pos-relative">
+                    <p class="text-right pos-absolute date">${finalDate} <br> ${cityResponse}</p>
+                    <div class="grid-x padding25">
+                        <div class="cell medium-2 padding25">${imageGood}</div>
+                        <div class=" cell medium-7">
+                          <h2>Today is a Great Day For A Beer!</h2>
+                        </div>
+                    </div>
+                    <div class="condition-info-good padding-y-15">
+                         <div class="grid-x">
+                             <div class="cell medium-8 margin-0">
+                                  <ul>
+                                        <li>
+                                          <p><b>High:</b> ${high}°</p>
+                                      </li>
+                                      <li>
+                                         <p><b>Conditions:</b> <img
+                                         style="width:40px; display:inline;" src="https://www.weatherbit.io/static/img/icons/${icon}.png"> ${description}</p>
+                                     </li>
+                                     <li>
+                                        <p><b>Wind Speed:</b> ${windspeed} </p>
+                                      </li>
+                                    </ul>
+                                </div>
+                                <div class="cell medium-4 text-right">
+                                 <button id="breweryBtn" class="button rounderCorners margin-0 view-breweries">View Local
+                                   Breweries</button>
+                                </div>
+                        </div>
                  </div>
+             </div>
              `
             }
             else {
@@ -94,21 +115,36 @@ function getWeather() {
                 var year = responseDate.substr(0, 4)
                 // final date combine both with a dash in between the day and year
                 var finalDate = monthDay + "-" + year
-                var imageBad = /*html*/ `<img src="assets/images/bad-day.svg" style="display:inline;" alt="Great Day!">
+                var imageBad = /*html*/ `<img src="assets/images/stormy-icon.svg" alt="Bad Day Icon">
                 `
                 weatherContent = /*html*/ `
-             <div class="card text-center card-width rounderCorners paddingB-20">
-                    <div class="card-divider bgBad"></div>
-                    <p class="marginT-20">${cityResponse} - ${finalDate}</p>
-                    <div class="marginY-20">${imageBad}</div>
-                    <div> 
-                     <div> 
-                     <p>Max Temp: <span class="dailyTemp">${high}°</span>  |  Conditions:<img
-                             style="width:40px; display:inline;" src="https://www.weatherbit.io/static/img/icons/${icon}.png"> <span
-                             class="dailyConditions">${description}</span>  |  
-                          Humidity: <span class="dailyHumid">35</span>
-                     </p></div>
-                 </div>
+                <div class="card bad-day rounderCorners pos-relative">
+                    <p class="text-right pos-absolute date">${finalDate} <br> ${cityResponse}</p>
+                         <div class="grid-x padding25">
+                           <div class="cell medium-2 padding25">${imageBad}</div>
+                        <div class="cell medium-7">
+                            <h2>Today is NOT a Great Day For A Beer...</h2>
+                        </div>
+                    </div>
+                    <div class="condition-info-bad padding-y-15">
+                     <div class="grid-x">
+                          <div class="cell margin-0">
+                                <ul>
+                                 <li>
+                                      <p><b>High:</b> ${high}°</p>
+                                  </li>
+                                 <li>
+                                     <p><b>Conditions:</b> <img
+                                     style="width:40px; display:inline;" src="https://www.weatherbit.io/static/img/icons/${icon}.png"> ${description}</p>
+                                 </li>
+                                 <li>
+                                        <p><b>Wind Speed:</b> ${windspeed}</p>
+                                   </li>
+                             </ul>
+                            </div>
+                     </div>
+                    </div>
+            </div>
              `
             }
             // on Append we just simply name the variable above
