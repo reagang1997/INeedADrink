@@ -21,7 +21,7 @@ html, body {
     background-image: url("images/bg-image-1440.png");
     background-color: #cccccc;
     height: 375px;
-    background-position: top center;
+    background-position: center;
     background-repeat:no-repeat;
     background-size: cover;
     background-attachment:fixed;
@@ -44,8 +44,9 @@ html, body {
 
 .search-container {
     margin:0 auto;
-    padding: 40px 0 0;
+    padding: 60px 0 0;
     max-width: 450px;
+    text-align:center;
 }
 
 .search-container h1 {
@@ -75,7 +76,6 @@ html, body {
     background-color: #1779ba;
     text-transform: uppercase;
     letter-spacing: 1px;
-    padding: 1rem;
     transition: all ease .4s;
 }
 
@@ -265,9 +265,15 @@ a {
 /* ============================= */
 
 @media screen and (max-width: 1024px) {
+    .bar-image {
+        background-image: url("images/bg-image-1024.png");
+    }
+    
     #breweries .container .card  {
         min-height: 240px;
     }
+
+
 }
 @media screen and (max-width: 768px) {
     #breweries .container .card  {
@@ -275,5 +281,21 @@ a {
         min-height:100px;
     }
 
+    .bar-image {
+        background-image: url("images/bg-image-768.png");
+    }
 
+
+}
+
+@media screen and (max-width: 600px) {
+    .bar-image {
+        background-image: url("images/bg-image-600.png");
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .bar-image {
+        background-image: url("images/bg-image-500.png");
+    }
 }
