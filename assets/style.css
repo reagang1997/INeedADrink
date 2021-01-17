@@ -18,7 +18,7 @@ html, body {
 }
 
 .bar-image {
-    background-image: url("https://www.brasstapbeerbar.com/images/slides/beer-taps.jpg");
+    background-image: url("https://cdn.pixabay.com/photo/2019/11/11/08/07/bar-4617528_960_720.jpg");
     background-color: #cccccc;
     height: 500px;
     background-position: center;
@@ -205,7 +205,7 @@ html, body {
 }
 
 .brewery{
-    text-align: center; */
+    text-align: center; 
     border: 1px solid gainsboro;
     width: 100%;
     margin-top: 25px; 
