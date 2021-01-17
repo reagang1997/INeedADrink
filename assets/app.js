@@ -25,7 +25,6 @@ var weatherKey = "fb5c4c3b9af04b90ba63cec252a9d051";
 
 var goodWeather = [800, 801, 802, 803];
 
-// var yesNo;
 
 $(document).ready(function () {
     //Get the Weather API
@@ -44,6 +43,9 @@ function getWeather() {
         console.log(res)
         var high, description, icon, code;
 
+        var cityResponse = res.city_name
+        console.log(cityResponse)
+
         $(".forecast-container").empty();
         for (var i = 0; i <= 7; i++) {
             var goodDay = false;
@@ -57,8 +59,6 @@ function getWeather() {
 
             if (goodWeather.indexOf(code) != -1) {
                 goodDay = true;
-                // yesNo = "Great Day For a Beer!";
-                // yesNo = "Great Day For a Beer!";
                 //  Adding variables for date so we can reformat it
                 var responseDate = res.data[i].valid_date;
                 //monthDay grabs only the month and the day from response
@@ -73,7 +73,7 @@ function getWeather() {
                 weatherContent = /*html*/ `
                     <div class="card text-center card-width rounderCorners paddingB-20">
                     <div class="card-divider bgGood"></div>
-                    <p class="marginT-20">${finalDate}</p>
+                    <p class="marginT-20">${cityResponse} - ${finalDate}</p>
                     <div class="marginY-20">${imageGood}</div>
                     <div> 
                         <p>Max Temp: <span class="dailyTemp">${high}°</span>  |  Conditions:<img
@@ -86,8 +86,6 @@ function getWeather() {
              `
             }
             else {
-                // yesNo = "Nahh";
-                // yesNo = "Great Day For a Beer!";
                 //  Adding variables for date so we can reformat it
                 var responseDate = res.data[i].valid_date;
                 //monthDay grabs only the month and the day from response
@@ -101,7 +99,7 @@ function getWeather() {
                 weatherContent = /*html*/ `
              <div class="card text-center card-width rounderCorners paddingB-20">
                     <div class="card-divider bgBad"></div>
-                    <p class="marginT-20">${finalDate}</p>
+                    <p class="marginT-20">${cityResponse} - ${finalDate}</p>
                     <div class="marginY-20">${imageBad}</div>
                     <div> 
                      <div> 
@@ -113,9 +111,6 @@ function getWeather() {
                  </div>
              `
             }
-
-            // Set HTML content to a variable
-
             // on Append we just simply name the variable above
             $("#forecast").append(weatherContent)
 
@@ -145,9 +140,6 @@ function getWeather() {
 
 // ==================================
 //Brewery List API
-
-
-
 var brewName, brewType, brewAddress, brewWebsite;
 
 function renderBreweries() {
@@ -174,7 +166,7 @@ function renderBreweries() {
             if (brewType === "planning") {
                 continue;
             }
-            if(favBrews.indexOf(brewName) != -1){
+            if (favBrews.indexOf(brewName) != -1) {
                 $("#brewery-container").append(/*html*/ `
             <div class="card margin5 rounderCorners">
                 <h4 class="brewName">${brewName}</h4>
@@ -185,18 +177,19 @@ function renderBreweries() {
             </div>
             `)
             }
-            else{
+            else {
                 $("#brewery-container").append(/*html*/ `
-                <div class="card margin5 rounderCorners">
+                <div class="card margin5 rounderCorners pos-relative">
+                    <div id="favorite" class="pos-absolute fav-icon-pos"> <i id="heart" class="far fa-heart"></i></div>
                     <h4 class="brewName">${brewName}</h4>
-                    <p>Type: <span class="brewType">${brewType}  <i id="heart" class="far fa-heart"></i></span><br>
+                    <p>Type: <span class="brewType">${brewType}<br>
                         Address: ${brewAddress}<br>
                         <a href="${brewWebsite}" target="blank">${brewWebsite}</a>
                     </p>
                 </div>
                 `)
             }
-            
+
         }
 
     })
@@ -211,7 +204,7 @@ $(".submit").on("click", function (event) {
         localStorage.setItem("citySearches", JSON.stringify(citySearches));
         setDropdown();
     }
-
+    $("#forecast").removeClass("hide");
     console.log(citySearches);
     $("#input-search").val("");
     getWeather()
