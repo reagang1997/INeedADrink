@@ -9,6 +9,18 @@ html, body {
     box-sizing: border-box;
   }
 
+  h2 {
+    font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+    font-size: 3.5em;
+    line-height: 1.25em;
+    margin-top:10px;
+  }
+
+p {
+    font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+    font-size: 1.15em
+}
+
  .main-container{
     display: flex;
     align-items: center;
@@ -65,7 +77,6 @@ html, body {
     width: 60%;
     display: inline;
 }
-
 
 
 .submit {
@@ -125,14 +136,55 @@ html, body {
     transition: all ease .4s;
 }
 
+/* FORECAST CARDS */
+
+.good-day {
+    background-color:#0487D9;
+    color:#ffffff;
+}
+
+.bad-day {
+    background-color:#A69E8F;
+    color:#ffffff;
+}
+
+.date {
+    right: 20px;
+    top: 10px;
+}
+
+.condition-info-good {
+    background-color:#0358A1;
+    border-radius: 0 0 20px 20px;
+}
+
+.condition-info-bad {
+    background-color:#59554D;
+    border-radius: 0 0 20px 20px;
+}
+
+.view-breweries {
+    background-color:#ffffff;
+    color:#0358A1;
+}
+
+
 /**********************/
 /* Helper CSS Classes */
+.margin-0 {
+    margin: 0 0;
+}
+
 .marginT-20 {
     margin:20px 0 0;
 }
 
 .marginY-20 {
     margin:20px 0;
+}
+
+.marginX-5 {
+    margin:0 5px;
 }
 
 .margin20 {
@@ -145,6 +197,14 @@ html, body {
 
 .padding25 {
     padding: 20px;
+}
+
+.padding-y-15 {
+    padding: 15px;
+}
+
+.padding-y-6 {
+    padding-top:6px;
 }
 
 .padding-x-20 {
@@ -165,6 +225,10 @@ html, body {
 
 .y-align-top {
     vertical-align: top;
+}
+
+.y-align-center {
+    vertical-align: center;
 }
 
 .fav-icon-pos {
@@ -193,6 +257,26 @@ html, body {
 
 .card-width {
     width:75%;
+}
+
+.condition-info-good ul {
+    margin: 0 0;
+}
+
+.condition-info-good ul li {
+    display: inline-block;
+    padding: 0 15px;
+    margin: 5px 0 0;
+}
+
+.condition-info-bad ul {
+    margin: 0 0;
+}
+
+.condition-info-bad ul li {
+    display: inline-block;
+    padding: 0 15px;
+    margin: 5px 0 0;
 }
 
 /* Removed arrow from data list dropdown */
