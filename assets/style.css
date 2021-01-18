@@ -324,27 +324,29 @@ input::-webkit-calendar-picker-indicator {
 }
 
 footer {
-    position:fixed;
+    /* position:fixed; */
     width:100%;
     bottom:0px;
     background-color: #1779ba;
     color: #ffffff;
-    padding-top: 40px;
+    padding: 14px 25px 0px 25px;
     text-align: center;
     align-items: center;
-}
-
-.links {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
 }
 
 footer a {
     color: #ffffff;
 }
+
+footer a:hover {
+    color: #D8D8D8;
+    transition: .5s;
+}
+
+footer p {
+    font-size: .75em
+}
+
 
 
 
