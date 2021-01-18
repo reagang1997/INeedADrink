@@ -14,10 +14,46 @@
   width: 100%;
 } */
 
+/* UPDATES */
 .slick-prev:before,
 .slick-next:before {
-  color: black;
+  color: #0358A1;
+  font-size: 46px;
 }
+
+.slick-next {
+  right: -20px;
+  width: 30px;
+    height: 30px;
+}
+
+.slick-prev {
+  left: -22px;
+  width: 30px;
+    height: 30px;
+}
+
+
+.slick-prev:before
+{
+    /* content: '←'; */
+    content: url(images/chevron-left-solid.svg);
+}
+[dir='rtl'] .slick-prev:before
+{
+    content: url(images/chevron-right-solid.svg);
+}
+
+.slick-next:before
+{
+    content: url(images/chevron-right-solid.svg);
+}
+[dir='rtl'] .slick-next:before
+{
+    content: url(images/chevron-left-solid.svg);
+}
+
+/*  */
 
 
 .slick-slide {
