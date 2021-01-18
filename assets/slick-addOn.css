@@ -16,7 +16,16 @@
 
 .slick-prev:before,
 .slick-next:before {
-  color: black;
+  color: #0358A1;
+  font-size: 46px;
+}
+
+.slick-next {
+  right: -12px;
+}
+
+.slick-prev {
+  left: -37px;
 }
 
 
