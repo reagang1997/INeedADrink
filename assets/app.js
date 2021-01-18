@@ -27,6 +27,7 @@ var goodWeather = [800, 801, 802, 803];
 
 
 $(document).ready(function () {
+    initDropdown();
     //Get the Weather API
     // getWeather(city);
     // // Get The Brewery API
@@ -254,3 +255,8 @@ function setDropdown(city) {
 }
 
 
+function initDropdown() {
+    $.each(citySearches, function (i, city) {
+        $("#input-drop").append($("<option>").text(city));
+    })
+}
