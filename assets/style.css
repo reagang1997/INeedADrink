@@ -9,6 +9,16 @@ html, body {
     box-sizing: border-box;
   }
 
+  h1 {
+    font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+    font-size: 1.5em;
+    line-height: 1.25em;
+    margin-top:10px;
+    color: #cdcdcd;
+    margin: 0;
+    text-align:center;
+  }
+
   h2 {
     font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
     font-size: 3.5em;
@@ -301,6 +311,10 @@ input::-webkit-calendar-picker-indicator {
     margin:0 auto;
 }
 
+.instruction-bg {
+    background-color:#ececec;
+    border-color: #cdcdcd;
+}
 
 #breweries{
     /* display: flex;
