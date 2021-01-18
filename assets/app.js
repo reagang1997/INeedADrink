@@ -11,7 +11,7 @@ else {
 }
 
 if (localStorage.getItem("favBrews")) {
-    var citySearches = JSON.parse(localStorage.getItem("favBrews"));
+    var favBrews = JSON.parse(localStorage.getItem("favBrews"));
 }
 else {
     var favBrews = [];
@@ -204,9 +204,10 @@ function renderBreweries() {
             }
             if (favBrews.indexOf(brewName) != -1) {
                 $("#brewery-container").append(/*html*/ `
-            <div class="card margin5 rounderCorners">
+                <div class="card margin5 rounderCorners pos-relative">
+                <div id="favorite" class="pos-absolute fav-icon-pos"> <i id="heart" class="fas fa-heart"></i></div>
                 <h4 class="brewName">${brewName}</h4>
-                <p>Type: <span class="brewType">${brewType}  <i id="heart" class="fas fa-heart"></i></span><br>
+                <p>Type: <span class="brewType">${brewType}<br>
                     Address: ${brewAddress}<br>
                     <a href="${brewWebsite}" target="blank">${brewWebsite}</a>
                 </p>
@@ -238,7 +239,7 @@ $(".submit").on("click", function (event) {
     if (citySearches.indexOf(city) === -1) {
         citySearches.push(city);
         localStorage.setItem("citySearches", JSON.stringify(citySearches));
-        setDropdown();
+        setDropdown(city);
     }
     $("#forecast").removeClass("hide");
     console.log(citySearches);
@@ -270,7 +271,7 @@ $("#brewery-container").on("click", "#heart", function (event) {
     console.log('heart clicked');
     console.log();
 
-    var tmp = this.parentElement.parentElement.previousElementSibling.textContent;
+    var tmp = this.parentElement.nextElementSibling.textContent;
 
     $(this).removeClass("far")
         .addClass("fas");
@@ -284,12 +285,8 @@ $("#brewery-container").on("click", "#heart", function (event) {
 
 })
 
-function setDropdown() {
-
-
-    $.each(citySearches, function (i, item) {
-        $("#input-drop").append($("<option>").text(item));
-    });
+function setDropdown(city) {
+    $("#input-drop").append($("<option>").text(city));
 }
 
 
