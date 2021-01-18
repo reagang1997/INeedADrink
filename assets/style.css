@@ -379,6 +379,10 @@ footer p {
         background-attachment: none;
     }
 
+    .condition-info-good ul li {
+        margin: 0;
+    }
+
 
 }
 

@@ -77,14 +77,14 @@ function getWeather() {
                 <div class="card good-day rounderCorners pos-relative">
                     <p class="text-right pos-absolute date">${finalDate} <br> ${cityResponse}</p>
                     <div class="grid-x padding25">
-                        <div class="cell medium-2 padding25">${imageGood}</div>
-                        <div class=" cell medium-7">
+                        <div id="icon" class="cell medium-2 padding25">${imageGood}</div>
+                        <div id="day-status" class=" cell medium-7">
                           <h2>Today is a Great Day For A Beer!</h2>
                         </div>
                     </div>
                     <div class="condition-info-good padding-y-15">
                          <div class="grid-x">
-                             <div class="cell medium-8 margin-0">
+                             <div id="conditions" class="cell medium-8 margin-0">
                                   <ul>
                                         <li>
                                           <p><b>High:</b> ${high}°</p>
@@ -98,7 +98,7 @@ function getWeather() {
                                       </li>
                                     </ul>
                                 </div>
-                                <div class="cell medium-4 text-right">
+                                <div id="view-breweries" class="cell medium-4 text-right">
                                  <button id="breweryBtn" class="button rounderCorners margin-0 view-breweries">View Local
                                    Breweries</button>
                                 </div>
@@ -121,27 +121,27 @@ function getWeather() {
                 weatherContent = /*html*/ `
                 <div class="card bad-day rounderCorners pos-relative">
                     <p class="text-right pos-absolute date">${finalDate} <br> ${cityResponse}</p>
-                         <div class="grid-x padding25">
-                           <div class="cell medium-2 padding25">${imageBad}</div>
-                        <div class="cell medium-7">
+                        <div class="grid-x padding25">
+                            <div id="icon" class="cell medium-2 padding25">${imageBad}</div>
+                            <div id="day-status" class="cell medium-7">
                             <h2>Today is NOT a Great Day For A Beer...</h2>
+                            </div>
                         </div>
-                    </div>
                     <div class="condition-info-bad padding-y-15">
                      <div class="grid-x">
-                          <div class="cell margin-0">
+                          <div id="conditions" class="cell margin-0">
                                 <ul>
-                                 <li>
+                                    <li>
                                       <p><b>High:</b> ${high}°</p>
-                                  </li>
-                                 <li>
+                                    </li>
+                                    <li>
                                      <p><b>Conditions:</b> <img
                                      style="width:40px; display:inline;" src="https://www.weatherbit.io/static/img/icons/${icon}.png"> ${description}</p>
-                                 </li>
-                                 <li>
-                                        <p><b>Wind Speed:</b> ${windspeed}</p>
-                                   </li>
-                             </ul>
+                                    </li>
+                                    <li>
+                                    <p><b>Wind Speed:</b> ${windspeed}</p>
+                                    </li>
+                                </ul>
                             </div>
                      </div>
                     </div>
