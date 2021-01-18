@@ -376,6 +376,7 @@ footer p {
 
     .bar-image {
         background-image: url("images/bg-image-768.png");
+        background-attachment: none;
     }
 
 
