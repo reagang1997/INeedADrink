@@ -393,6 +393,33 @@ footer p {
 
     .bar-image {
         background-image: url("images/bg-image-768.png");
+        background-attachment: none;
+    }
+
+    .condition-info-good ul li {
+        margin: 0;
+    }
+
+    #icon {
+        width:99%;
+    }
+
+    #day-status {
+        width:99%;
+    }
+
+    #conditions {
+        width:99%;
+    }
+
+    #conditions p {
+        margin-bottom: 0;
+    }
+
+    #view-breweries {
+        width:99%;
+        margin: 20px 10px;
+        text-align:left;
     }
 
 
