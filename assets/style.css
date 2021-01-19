@@ -113,7 +113,7 @@ main {
 }
 
 
-.forecast-container{
+/* .forecast-container{
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -125,7 +125,7 @@ main {
     height: auto;
     width: 35%;
     padding: 15px;
-}
+} */
 
 .hide{
     display: none;
@@ -183,67 +183,7 @@ main {
 }
 
 
-/**********************/
-/* Helper CSS Classes */
-.margin-0 {
-    margin: 0 0;
-}
 
-.marginT-20 {
-    margin:20px 0 0;
-}
-
-.marginY-20 {
-    margin:20px 0;
-}
-
-.marginX-5 {
-    margin:0 5px;
-}
-
-.margin20 {
-    margin:20px;
-}
-
-.margin5 {
-    margin:5px;
-}
-
-.padding25 {
-    padding: 20px;
-}
-
-.padding-y-15 {
-    padding: 15px;
-}
-
-.padding-y-6 {
-    padding-top:6px;
-}
-
-.padding-x-20 {
-    padding: 0 20px;
-}
-
-.paddingB-20 {
-    padding-bottom:20px;
-}
-
-.pos-relative {
-    position:relative
-}
-
-.pos-absolute {
-    position:absolute;
-}
-
-.y-align-top {
-    vertical-align: top;
-}
-
-.y-align-center {
-    vertical-align: center;
-}
 
 .fav-icon-pos {
     right: 16px;
@@ -304,7 +244,9 @@ input::-webkit-calendar-picker-indicator {
     display:inline;
 }
 
-/**********************/
+/* ============================= */
+/* Initial Placeholder Content */
+/* ============================= */
 
 #intructions .container {
     max-width: 1200px;
@@ -316,11 +258,11 @@ input::-webkit-calendar-picker-indicator {
     border-color: #cdcdcd;
 }
 
+/* ============================= */
+/* Brewery Content CSS */
+/* ============================= */
+
 #breweries{
-    /* display: flex;
-    align-items: center;
-    flex-direction: column;
-    flex:1; */
     width: 100%;
 }
 
@@ -343,6 +285,73 @@ input::-webkit-calendar-picker-indicator {
     width: 100%;
     margin-top: 25px; 
 }
+
+/* ============================= */
+/* Helper Classes */
+/* ============================= */
+.margin-0 {
+    margin: 0 0;
+}
+
+.marginT-20 {
+    margin:20px 0 0;
+}
+
+.marginY-20 {
+    margin:20px 0;
+}
+
+.marginX-5 {
+    margin:0 5px;
+}
+
+.margin20 {
+    margin:20px;
+}
+
+.margin5 {
+    margin:5px;
+}
+
+.padding25 {
+    padding: 20px;
+}
+
+.padding-y-15 {
+    padding: 15px;
+}
+
+.padding-y-6 {
+    padding-top:6px;
+}
+
+.padding-x-20 {
+    padding: 0 20px;
+}
+
+.paddingB-20 {
+    padding-bottom:20px;
+}
+
+.pos-relative {
+    position:relative
+}
+
+.pos-absolute {
+    position:absolute;
+}
+
+.y-align-top {
+    vertical-align: top;
+}
+
+.y-align-center {
+    vertical-align: center;
+}
+
+/* ============================= */
+/* Helper Media Queries */
+/* ============================= */
 
 footer {
     width:100%;
