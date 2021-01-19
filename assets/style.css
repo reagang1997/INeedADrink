@@ -113,20 +113,6 @@ main {
 }
 
 
-/* .forecast-container{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    flex:1;
-    margin-top: 50px;
-    text-align: center;
-    border: solid 2px gray;
-    border-radius: 5px;
-    height: auto;
-    width: 35%;
-    padding: 15px;
-} */
-
 .hide{
     display: none;
 }
@@ -182,18 +168,6 @@ main {
     color:#0358A1;
 }
 
-
-
-
-.fav-icon-pos {
-    right: 16px;
-    top: 10px;
-}
-
-/* Color change for Heart Icon */
-.fas {
-    color:#F23030;
-}
 
 .rounderCorners {
     border-radius: 20px
@@ -284,6 +258,17 @@ input::-webkit-calendar-picker-indicator {
     border: 1px solid gainsboro;
     width: 100%;
     margin-top: 25px; 
+}
+
+/* Heart Icon Classes */
+.fav-icon-pos {
+    right: 16px;
+    top: 10px;
+}
+
+/* Color change for Heart Icon */
+.fas {
+    color:#F23030;
 }
 
 /* ============================= */
