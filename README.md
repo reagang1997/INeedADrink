@@ -11,9 +11,9 @@ So I can either make a spontaneous trip, or plan ahead which brewery(or brewerie
 ```
 
 
-The following image demonstrates the application's functionality
+The following image demonstrates the application's functionality:
 
-<!--image-->
+![appication demo](./assets/images/app-image.png) 
 
 # Project on Github
 **Respository** - https://bithub.com/reagang1997/INeedADrink
