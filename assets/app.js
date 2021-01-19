@@ -50,8 +50,6 @@ function getWeather() {
 
         var cityResponse = res.city_name
 
-        // $(".forecast-container").empty();
-
         //generateing a 7-day forecast
         for (var i = 0; i <= 7; i++) {
             var goodDay = false;
