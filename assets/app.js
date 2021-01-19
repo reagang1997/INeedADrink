@@ -50,24 +50,6 @@ function getWeather() {
 
         var cityResponse = res.city_name
 
-        // var currentSlide = $(".slick-slide").slick('slickCurrentSlide')
-
-        // $(".forecast-container").empty();
-        // $("#forecast").empty();
-
-
-        // for (var i = 0; i <= 7; i++) {
-        //     $(".slick-slide").slick('slickRemove', currentSlide);
-        //     console.log("remove");
-        // }
-        //generateing a 7-day forecast
-
-        // if ($("#forecast").hasClass("slick-initialized")) {
-        //     for (var i = 0; i <= 7; i++) {
-        //         $(".slick-track").slick('slickRemove', $("#dynamic-slide")[i]);
-        //         console.log("remove" + i);
-        //     }
-        // }
         for (var i = 0; i <= 7; i++) {
             var goodDay = false;
             var weatherContent;
@@ -177,11 +159,6 @@ function getWeather() {
             </div>
              `
             }
-            // if ($("#forecast").hasClass("slick-initialized")) {
-            //     $(".slick-track").slick('slickRemove', $("#dynamic-slide")[i]);
-
-            //     console.log("Slide Removed " + i)
-            // }
             // on Append we just simply name the variable above
             $("#forecast").append(weatherContent)
 
@@ -189,7 +166,7 @@ function getWeather() {
         //function for the slick slider
         // if the slider has already been initialized, we have to "un-initialize" and then reinitialize 
         if ($("#forecast").hasClass("slick-initialized")) {
-            // return
+            $('#forecast').slick('removeSlide', null, null, true);
             $("#forecast").slick('unslick')
             $("#forecast").slick({
                 lazyLoad: 'ondemand', // ondemand progressive anticipated
