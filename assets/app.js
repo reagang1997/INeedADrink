@@ -189,7 +189,7 @@ function getWeather() {
         //function for the slick slider
         // if the slider has already been initialized, we have to "un-initialize" and then reinitialize 
         if ($("#forecast").hasClass("slick-initialized")) {
-            // return
+            $('#forecast').slick('removeSlide', null, null, true);
             $("#forecast").slick('unslick')
             $("#forecast").slick({
                 lazyLoad: 'ondemand', // ondemand progressive anticipated
