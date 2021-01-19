@@ -2,6 +2,9 @@
 //Empty Variable to pass the city search should hopefully work for both Weather and Brewery API at the same time
 var city = "";
 
+
+//if there are city searches in local storage, then we pull them and set the drop down
+// else we create the array
 if (localStorage.getItem("citySearches")) {
     var citySearches = JSON.parse(localStorage.getItem("citySearches"));
     setDropdown();
@@ -10,6 +13,7 @@ else {
     var citySearches = [];
 }
 
+// if favBrews is in local storage, then we pull it and save it, else create it
 if (localStorage.getItem("favBrews")) {
     var favBrews = JSON.parse(localStorage.getItem("favBrews"));
 }
@@ -20,34 +24,35 @@ else {
 
 // ==================================
 //Weather API
-var weatherURL = "https://api.weatherbit.io/v2.0/forecast/daily?" //city="dallas";
+var weatherURL = "https://api.weatherbit.io/v2.0/forecast/daily?";
 var weatherKey = "fb5c4c3b9af04b90ba63cec252a9d051";
 
+// Weather codes that classify as "good weather"
 var goodWeather = [800, 801, 802, 803];
 
 
 $(document).ready(function () {
+    // when loaded, initialize the dropdown
     initDropdown();
-    //Get the Weather API
-    // getWeather(city);
-    // // Get The Brewery API
-    // renderBreweries()
 
 });
 
+// function to get all info from weather API
 function getWeather() {
 
     $.ajax({
         method: "GET",
         url: weatherURL + "city=" + city + "&key=" + weatherKey
     }).then(function (res) {
-        console.log(res)
+
+        //set varaiables
         var high, description, icon, code;
 
         var cityResponse = res.city_name
-        console.log(cityResponse)
 
         $(".forecast-container").empty();
+
+        //generateing a 7-day forecast
         for (var i = 0; i <= 7; i++) {
             var goodDay = false;
             var weatherContent;
@@ -58,8 +63,7 @@ function getWeather() {
             wind = res.data[i].wind_spd;
             windspeed = Math.round(wind);
 
-            // $("#forecast").empty()
-
+            // if the current weather code is in our array, then its a good day for a beer!            
             if (goodWeather.indexOf(code) != -1) {
                 goodDay = true;
                 //  Adding variables for date so we can reformat it
@@ -73,6 +77,7 @@ function getWeather() {
 
                 var imageGood = /*html*/ `<img src="assets/images/sunny-icon.svg" alt="Great Day Icon">
                 `
+                // create forecast card for a good day
                 weatherContent = /*html*/ `
                 <div class="card good-day rounderCorners pos-relative">
                     <p class="text-right pos-absolute date">${finalDate} <br> ${cityResponse}</p>
@@ -118,6 +123,7 @@ function getWeather() {
                 var finalDate = monthDay + "-" + year
                 var imageBad = /*html*/ `<img src="assets/images/stormy-icon.svg" alt="Bad Day Icon">
                 `
+                //create forecast card for a bad day
                 weatherContent = /*html*/ `
                 <div class="card bad-day rounderCorners pos-relative">
                     <p class="text-right pos-absolute date">${finalDate} <br> ${cityResponse}</p>
@@ -153,18 +159,15 @@ function getWeather() {
 
         }
         //function for the slick slider
+        // if the slider has already been initialized, we have to "un-initialize" and then reinitialize 
         if ($("#forecast").hasClass("slick-initialized")) {
-            console.log("If Running")
             // return
             $("#forecast").slick('unslick')
-            console.log("unslick")
             $("#forecast").slick({
                 lazyLoad: 'ondemand', // ondemand progressive anticipated
                 infinite: true
             });
-            console.log("Slick")
         } else {
-            console.log("SLICK")
             $("#forecast").slick({
                 lazyLoad: 'ondemand', // ondemand progressive anticipated
                 infinite: true
@@ -179,6 +182,7 @@ function getWeather() {
 //Brewery List API
 var brewName, brewType, brewAddress, brewWebsite;
 
+// function to retrieve brewery info, and render it
 function renderBreweries() {
     breweryQueryURL = "https://api.openbrewerydb.org/breweries?by_city=" + city
     $.ajax({
@@ -187,6 +191,7 @@ function renderBreweries() {
     }).then(function (response) {
         console.log(response);
 
+        // button to go back to the forecast
         $("#brewery-container").append(/*html*/ `
         <div class="fore-btn-wrap marginT-20">
         <button id="backToForecast" class="button rounderCorners">
@@ -194,6 +199,7 @@ function renderBreweries() {
         </button></div>
         `)
 
+        //render all the breweries from the resposne
         for (var i = 0; i < response.length; i++) {
             brewName = response[i].name;
             brewType = response[i].brewery_type;
@@ -203,6 +209,7 @@ function renderBreweries() {
             if (brewType === "planning") {
                 continue;
             }
+            // if the brewery has been favorited, make sure the heart is still red
             if (favBrews.indexOf(brewName) != -1) {
                 $("#brewery-container").append(/*html*/ `
                 <div class="card margin5 rounderCorners pos-relative">
@@ -215,6 +222,7 @@ function renderBreweries() {
             </div>
             `)
             }
+            // else the heart will be blank
             else {
                 $("#brewery-container").append(/*html*/ `
                 <div class="card margin5 rounderCorners pos-relative">
@@ -233,23 +241,26 @@ function renderBreweries() {
     })
 }
 
+// event handler for clicking subit on city search
 $(".submit").on("click", function (event) {
     event.preventDefault();
-    console.log("click")
     city = $("#input-search").val();
+    // if this city has NOT been searched, save it
     if (citySearches.indexOf(city) === -1) {
         citySearches.push(city);
         localStorage.setItem("citySearches", JSON.stringify(citySearches));
         setDropdown(city);
     }
+    // hide the instructions and who the forecast
     $("#intructions").addClass("hide");
     $("#forecast").removeClass("hide");
-    console.log(citySearches);
+    // empty the input search field, get weather, and empty the brewery container
     $("#input-search").val("");
     getWeather()
     $("#brewery-container").empty();
 })
 
+// when "show local breweries" will render breweries and hide forecast containers
 $("#forecast").on("click", "#breweryBtn", function (event) {
     event.preventDefault();
     //added function to empty the brewery container on clicking the view brewery buttons
@@ -269,21 +280,20 @@ $("#brewery-container").on("click", "#backToForecast", function (event) {
     $("#forecast").removeClass("hide");
 })
 
+// event listener for clicking the heart
 $("#brewery-container").on("click", "#heart", function (event) {
-    console.log('heart clicked');
-    console.log();
-
+    
     var tmp = this.parentElement.nextElementSibling.textContent;
 
+    // change the color of the heart
     $(this).removeClass("far")
         .addClass("fas");
 
+    // push it into storage
     if (favBrews.indexOf(tmp) === -1) {
         favBrews.push(tmp);
         localStorage.setItem("favBrews", JSON.stringify(favBrews));
     }
-
-    console.log(favBrews);
 
 })
 
