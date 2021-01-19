@@ -2,14 +2,18 @@
 html, body {
     margin: 0;
     padding: 0;
-  }
+}
 
   /* Set Everything to Box Sizing */
-  * {
+* {
     box-sizing: border-box;
-  }
+}
 
-  h1 {
+/* ============================= */
+/* Universal Elements */
+/* ============================= */
+
+h1 {
     font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
     font-size: 1.25em;
     line-height: 1.25em;
@@ -17,14 +21,14 @@ html, body {
     color: #cdcdcd;
     margin: 0;
     text-align:center;
-  }
+}
 
-  h2 {
+h2 {
     font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
     font-size: 3.5em;
     line-height: 1.25em;
     margin-top:10px;
-  }
+}
 
 p {
     font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
@@ -35,13 +39,9 @@ main {
     min-height: 400px;
 }
 
- .main-container{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    flex:1;
-    margin-top: 100px;
-}
+/* ============================= */
+/* Header / Search Section */
+/* ============================= */
 
 .bar-image {
     background-image: url("images/bg-image-1440.png");
@@ -54,20 +54,6 @@ main {
     position: relative;
 }
 
-.card-divider{
-    border-radius: 30px;
-}
-.my-card {
-    align-items: center;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} 
-
 .search-container {
     margin:0 auto;
     padding: 60px 0 0;
@@ -75,21 +61,9 @@ main {
     text-align:center;
 }
 
-.search-container h1 {
-    color:#ffffff;
-    text-align:center;
-}
-
-
-.seach-by-city {
-    text-align: center;
-    font-size: large;
-    align-items: center;
-}
-
-.search-field {
-    width: 60%;
-    display: inline;
+/* Removed arrow from data list dropdown */
+input::-webkit-calendar-picker-indicator {
+    display: none;
 }
 
 
@@ -104,51 +78,6 @@ main {
     transition: all ease .4s;
 }
 
-
-.day-card{
-    border: solid 2px gray;
-    border-radius: 5px;
-    width: 45%;
-    margin-top: 15px;
-}
-
-
-.forecast-container{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    flex:1;
-    margin-top: 50px;
-    text-align: center;
-    border: solid 2px gray;
-    border-radius: 5px;
-    height: auto;
-    width: 35%;
-    padding: 15px;
-}
-
-.hide{
-    display: none;
-}
-
-.fore-btn-wrap{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    flex:1;
-}
-
-.back-to-fore{
-    border-radius: 30px;
-    border: 1px solid #fff;
-    color: #fff;
-    background-color: navy;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    width: 12%;
-    padding: 1rem;
-    transition: all ease .4s;
-}
 
 /* FORECAST CARDS */
 
@@ -182,9 +111,140 @@ main {
     color:#0358A1;
 }
 
+.bgGood {
+    background-color:#1779ba;
+    color:#ffffff;
+}
 
-/**********************/
-/* Helper CSS Classes */
+.bgBad {
+    background-color:#cc4b37;
+    color: #ffffff;
+}
+
+.card-width {
+    width:75%;
+}
+
+.condition-info-good ul {
+    margin: 0 0;
+}
+
+.condition-info-good ul li {
+    display: inline-block;
+    padding: 0 15px;
+    margin: 5px 0 0;
+}
+
+.condition-info-bad ul {
+    margin: 0 0;
+}
+
+.condition-info-bad ul li {
+    display: inline-block;
+    padding: 0 15px;
+    margin: 5px 0 0;
+}
+
+/* * Resises Condition Icon */
+.conditions-content {
+    width:40px;
+    display:inline;
+}
+
+/* ============================= */
+/* Initial Placeholder Content */
+/* ============================= */
+
+#intructions .container {
+    max-width: 1200px;
+    margin:0 auto;
+}
+
+.instruction-bg {
+    background-color:#ececec;
+    border-color: #cdcdcd;
+}
+
+/* ============================= */
+/* Brewery Content CSS */
+/* ============================= */
+
+#breweries{
+    width: 100%;
+}
+
+#breweries .container {
+    max-width: 1200px;
+    margin:0 auto;
+}
+
+#breweries .container .card {
+    width: 40%;
+    padding: 20px;
+    display: inline-block;
+    vertical-align: top;
+    min-height: 160px;
+}
+
+.brewery{
+    text-align: center; 
+    border: 1px solid gainsboro;
+    width: 100%;
+    margin-top: 25px; 
+}
+
+.fore-btn-wrap{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex:1;
+}
+
+/* Heart Icon Classes */
+.fav-icon-pos {
+    right: 16px;
+    top: 10px;
+}
+
+/* Color change for Heart Icon */
+.fas {
+    color:#F23030;
+}
+
+/* ============================= */
+/* Footer CSS */
+/* ============================= */
+
+footer {
+    width:100%;
+    bottom:0px;
+    background-color: #1779ba;
+    color: #ffffff;
+    padding: 14px 25px 0px 25px;
+    text-align: center;
+    align-items: center;
+}
+
+footer a {
+    color: #ffffff;
+}
+
+footer a:hover {
+    color: #D8D8D8;
+    transition: .5s;
+}
+
+footer p {
+    font-size: .75em
+}
+
+/* ============================= */
+/* Helper Classes */
+/* ============================= */
+.hide{
+    display: none;
+}
+
 .margin-0 {
     margin: 0 0;
 }
@@ -237,6 +297,10 @@ main {
     position:absolute;
 }
 
+.rounderCorners {
+    border-radius: 20px
+}
+
 .y-align-top {
     vertical-align: top;
 }
@@ -244,131 +308,6 @@ main {
 .y-align-center {
     vertical-align: center;
 }
-
-.fav-icon-pos {
-    right: 16px;
-    top: 10px;
-}
-
-/* Color change for Heart Icon */
-.fas {
-    color:#F23030;
-}
-
-.rounderCorners {
-    border-radius: 20px
-}
-
-.bgGood {
-    background-color:#1779ba;
-    color:#ffffff;
-}
-
-.bgBad {
-    background-color:#cc4b37;
-    color: #ffffff;
-}
-
-.card-width {
-    width:75%;
-}
-
-.condition-info-good ul {
-    margin: 0 0;
-}
-
-.condition-info-good ul li {
-    display: inline-block;
-    padding: 0 15px;
-    margin: 5px 0 0;
-}
-
-.condition-info-bad ul {
-    margin: 0 0;
-}
-
-.condition-info-bad ul li {
-    display: inline-block;
-    padding: 0 15px;
-    margin: 5px 0 0;
-}
-
-/* Removed arrow from data list dropdown */
-input::-webkit-calendar-picker-indicator {
-    display: none;
-  }
-
-/* * Resises Condition Icon */
-.conditions-content {
-    width:40px;
-    display:inline;
-}
-
-/**********************/
-
-#intructions .container {
-    max-width: 1200px;
-    margin:0 auto;
-}
-
-.instruction-bg {
-    background-color:#ececec;
-    border-color: #cdcdcd;
-}
-
-#breweries{
-    /* display: flex;
-    align-items: center;
-    flex-direction: column;
-    flex:1; */
-    width: 100%;
-}
-
-#breweries .container {
-    max-width: 1200px;
-    margin:0 auto;
-}
-
-#breweries .container .card {
-    width: 40%;
-    padding: 20px;
-    display: inline-block;
-    vertical-align: top;
-    min-height: 160px;
-}
-
-.brewery{
-    text-align: center; 
-    border: 1px solid gainsboro;
-    width: 100%;
-    margin-top: 25px; 
-}
-
-footer {
-    width:100%;
-    bottom:0px;
-    background-color: #1779ba;
-    color: #ffffff;
-    padding: 14px 25px 0px 25px;
-    text-align: center;
-    align-items: center;
-}
-
-footer a {
-    color: #ffffff;
-}
-
-footer a:hover {
-    color: #D8D8D8;
-    transition: .5s;
-}
-
-footer p {
-    font-size: .75em
-}
-
-
-
 
 /* ============================= */
 /* Helper Media Queries */

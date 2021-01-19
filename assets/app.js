@@ -50,9 +50,24 @@ function getWeather() {
 
         var cityResponse = res.city_name
 
-        $(".forecast-container").empty();
+        // var currentSlide = $(".slick-slide").slick('slickCurrentSlide')
 
+        // $(".forecast-container").empty();
+        // $("#forecast").empty();
+
+
+        // for (var i = 0; i <= 7; i++) {
+        //     $(".slick-slide").slick('slickRemove', currentSlide);
+        //     console.log("remove");
+        // }
         //generateing a 7-day forecast
+
+        // if ($("#forecast").hasClass("slick-initialized")) {
+        //     for (var i = 0; i <= 7; i++) {
+        //         $(".slick-track").slick('slickRemove', $("#dynamic-slide")[i]);
+        //         console.log("remove" + i);
+        //     }
+        // }
         for (var i = 0; i <= 7; i++) {
             var goodDay = false;
             var weatherContent;
@@ -62,6 +77,14 @@ function getWeather() {
             icon = res.data[i].weather.icon;
             wind = res.data[i].wind_spd;
             windspeed = Math.round(wind);
+
+            var slideContainer = $('#dynamic-slide')
+
+            if (slideContainer == true) {
+                // $('#dynamic-slide').remove();
+                $("#dynamic-slide").slick('slickRemove', i)
+                console.log("Removed " + i)
+            }
 
             // if the current weather code is in our array, then its a good day for a beer!            
             if (goodWeather.indexOf(code) != -1) {
@@ -79,7 +102,7 @@ function getWeather() {
                 `
                 // create forecast card for a good day
                 weatherContent = /*html*/ `
-                <div class="card good-day rounderCorners pos-relative">
+                <div id ="dynamic-slide" class="card good-day rounderCorners pos-relative">
                     <p class="text-right pos-absolute date">${finalDate} <br> ${cityResponse}</p>
                     <div class="grid-x padding25">
                         <div id="icon" class="cell medium-2 padding25">${imageGood}</div>
@@ -125,7 +148,7 @@ function getWeather() {
                 `
                 //create forecast card for a bad day
                 weatherContent = /*html*/ `
-                <div class="card bad-day rounderCorners pos-relative">
+                <div id ="dynamic-slide" class="card bad-day rounderCorners pos-relative">
                     <p class="text-right pos-absolute date">${finalDate} <br> ${cityResponse}</p>
                         <div class="grid-x padding25">
                             <div id="icon" class="cell medium-2 padding25">${imageBad}</div>
@@ -154,6 +177,11 @@ function getWeather() {
             </div>
              `
             }
+            // if ($("#forecast").hasClass("slick-initialized")) {
+            //     $(".slick-track").slick('slickRemove', $("#dynamic-slide")[i]);
+
+            //     console.log("Slide Removed " + i)
+            // }
             // on Append we just simply name the variable above
             $("#forecast").append(weatherContent)
 
@@ -257,6 +285,7 @@ $(".submit").on("click", function (event) {
     // empty the input search field, get weather, and empty the brewery container
     $("#input-search").val("");
     getWeather()
+
     $("#brewery-container").empty();
 })
 
@@ -282,7 +311,7 @@ $("#brewery-container").on("click", "#backToForecast", function (event) {
 
 // event listener for clicking the heart
 $("#brewery-container").on("click", "#heart", function (event) {
-    
+
     var tmp = this.parentElement.nextElementSibling.textContent;
 
     // change the color of the heart
