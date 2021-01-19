@@ -2,18 +2,18 @@
 html, body {
     margin: 0;
     padding: 0;
-  }
+}
 
   /* Set Everything to Box Sizing */
-  * {
+* {
     box-sizing: border-box;
-  }
+}
 
 /* ============================= */
 /* Universal Elements */
 /* ============================= */
 
-  h1 {
+h1 {
     font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
     font-size: 1.25em;
     line-height: 1.25em;
@@ -21,14 +21,14 @@ html, body {
     color: #cdcdcd;
     margin: 0;
     text-align:center;
-  }
+}
 
-  h2 {
+h2 {
     font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
     font-size: 3.5em;
     line-height: 1.25em;
     margin-top:10px;
-  }
+}
 
 p {
     font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
@@ -64,7 +64,7 @@ main {
 /* Removed arrow from data list dropdown */
 input::-webkit-calendar-picker-indicator {
     display: none;
-  }
+}
 
 
 .submit {
