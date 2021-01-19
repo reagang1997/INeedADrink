@@ -64,7 +64,7 @@ main {
 
 .search-container {
     margin:0 auto;
-    padding: 60px 0 0;
+    padding: 60px 20px 0;
     max-width: 450px;
     text-align:center;
 }
@@ -383,6 +383,10 @@ footer p {
     
     .bar-image {
         background-image: url("images/bg-image-600.png");
+    }
+
+    .card-width {
+        width: 88%;
     }
 }
 
