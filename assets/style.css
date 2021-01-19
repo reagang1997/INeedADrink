@@ -30,6 +30,14 @@ h2 {
     margin-top:10px;
 }
 
+h3 {
+    font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+}
+
+h4 {
+    font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
+}
+
 p {
     font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
     font-size: 1.15em
