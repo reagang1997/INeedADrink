@@ -9,6 +9,10 @@ html, body {
     box-sizing: border-box;
   }
 
+/* ============================= */
+/* Universal Elements */
+/* ============================= */
+
   h1 {
     font-family: 'Roboto Condensed', Helvetica, Arial, sans-serif;
     font-size: 1.25em;
@@ -35,13 +39,17 @@ main {
     min-height: 400px;
 }
 
- .main-container{
+ .main-container {
     display: flex;
     align-items: center;
     flex-direction: column;
     flex:1;
     margin-top: 100px;
 }
+
+/* ============================= */
+/* Header / Search Section */
+/* ============================= */
 
 .bar-image {
     background-image: url("images/bg-image-1440.png");
@@ -57,6 +65,7 @@ main {
 .card-divider{
     border-radius: 30px;
 }
+
 .my-card {
     align-items: center;
     text-align: center;
@@ -92,6 +101,11 @@ main {
     display: inline;
 }
 
+/* Removed arrow from data list dropdown */
+input::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
 
 .submit {
     width:100%;
@@ -105,26 +119,15 @@ main {
 }
 
 
-.day-card{
+/* .day-card{
     border: solid 2px gray;
     border-radius: 5px;
     width: 45%;
     margin-top: 15px;
-}
+} */
 
 
-.hide{
-    display: none;
-}
-
-.fore-btn-wrap{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    flex:1;
-}
-
-.back-to-fore{
+/* .back-to-fore{
     border-radius: 30px;
     border: 1px solid #fff;
     color: #fff;
@@ -134,7 +137,7 @@ main {
     width: 12%;
     padding: 1rem;
     transition: all ease .4s;
-}
+} */
 
 /* FORECAST CARDS */
 
@@ -166,11 +169,6 @@ main {
 .view-breweries {
     background-color:#ffffff;
     color:#0358A1;
-}
-
-
-.rounderCorners {
-    border-radius: 20px
 }
 
 .bgGood {
@@ -206,11 +204,6 @@ main {
     padding: 0 15px;
     margin: 5px 0 0;
 }
-
-/* Removed arrow from data list dropdown */
-input::-webkit-calendar-picker-indicator {
-    display: none;
-  }
 
 /* * Resises Condition Icon */
 .conditions-content {
@@ -260,6 +253,13 @@ input::-webkit-calendar-picker-indicator {
     margin-top: 25px; 
 }
 
+.fore-btn-wrap{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex:1;
+}
+
 /* Heart Icon Classes */
 .fav-icon-pos {
     right: 16px;
@@ -272,8 +272,39 @@ input::-webkit-calendar-picker-indicator {
 }
 
 /* ============================= */
+/* Footer CSS */
+/* ============================= */
+
+footer {
+    width:100%;
+    bottom:0px;
+    background-color: #1779ba;
+    color: #ffffff;
+    padding: 14px 25px 0px 25px;
+    text-align: center;
+    align-items: center;
+}
+
+footer a {
+    color: #ffffff;
+}
+
+footer a:hover {
+    color: #D8D8D8;
+    transition: .5s;
+}
+
+footer p {
+    font-size: .75em
+}
+
+/* ============================= */
 /* Helper Classes */
 /* ============================= */
+.hide{
+    display: none;
+}
+
 .margin-0 {
     margin: 0 0;
 }
@@ -326,6 +357,10 @@ input::-webkit-calendar-picker-indicator {
     position:absolute;
 }
 
+.rounderCorners {
+    border-radius: 20px
+}
+
 .y-align-top {
     vertical-align: top;
 }
@@ -333,36 +368,6 @@ input::-webkit-calendar-picker-indicator {
 .y-align-center {
     vertical-align: center;
 }
-
-/* ============================= */
-/* Helper Media Queries */
-/* ============================= */
-
-footer {
-    width:100%;
-    bottom:0px;
-    background-color: #1779ba;
-    color: #ffffff;
-    padding: 14px 25px 0px 25px;
-    text-align: center;
-    align-items: center;
-}
-
-footer a {
-    color: #ffffff;
-}
-
-footer a:hover {
-    color: #D8D8D8;
-    transition: .5s;
-}
-
-footer p {
-    font-size: .75em
-}
-
-
-
 
 /* ============================= */
 /* Helper Media Queries */
