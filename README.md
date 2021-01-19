@@ -1,4 +1,4 @@
-# I Need a Drink!
+# Good Beer Day?
 
 A simple wed application that allows you to view a five day forecast, based on the conditions it will tell you if it is or isn't a good day to enjoy a beer outdoors. On the days that are enjoyable, you can then choose to view local breweries information in your area. 
 
