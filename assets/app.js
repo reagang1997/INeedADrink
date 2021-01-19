@@ -50,7 +50,7 @@ function getWeather() {
 
         var cityResponse = res.city_name
 
-        $(".forecast-container").empty();
+        // $(".forecast-container").empty();
 
         //generateing a 7-day forecast
         for (var i = 0; i <= 7; i++) {
@@ -162,7 +162,9 @@ function getWeather() {
         // if the slider has already been initialized, we have to "un-initialize" and then reinitialize 
         if ($("#forecast").hasClass("slick-initialized")) {
             // return
+            $('#forecast').slick('removeSlide', null, null, true);
             $("#forecast").slick('unslick')
+
             $("#forecast").slick({
                 lazyLoad: 'ondemand', // ondemand progressive anticipated
                 infinite: true
@@ -282,7 +284,7 @@ $("#brewery-container").on("click", "#backToForecast", function (event) {
 
 // event listener for clicking the heart
 $("#brewery-container").on("click", "#heart", function (event) {
-    
+
     var tmp = this.parentElement.nextElementSibling.textContent;
 
     // change the color of the heart
