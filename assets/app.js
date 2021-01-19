@@ -242,6 +242,7 @@ $(".submit").on("click", function (event) {
         localStorage.setItem("citySearches", JSON.stringify(citySearches));
         setDropdown(city);
     }
+    $("#intructions").addClass("hide");
     $("#forecast").removeClass("hide");
     console.log(citySearches);
     $("#input-search").val("");
